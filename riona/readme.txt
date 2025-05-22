@@ -3,7 +3,6 @@ You can use this template as a starter template and start building as you requir
 
 The code is consistent and can be easily maintained as we have followed a good coding standards. We want everyone to easily understand it and modify it according to their requirement. As the main goal of providing these templates is to give you something to work on before even starting.
 
-
 BOTH PERSONAL AND COMMERCIAL USE
 
 This HTML Template is provided by TemplatesJungle.com and can be used in both personal and commercial projects.
