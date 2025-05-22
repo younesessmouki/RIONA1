@@ -19,6 +19,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/rio_white.png" sizes="32x32">
+  <style>
+    .cat-list { user-select: text; -webkit-user-select: text; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2em; font-size: 1.1em; margin: 0; padding: 0; list-style: none; }
+    .cat-list-item.main { font-size: 1.18em; font-weight: bold; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+    .cat-list-item.sub { font-size: 0.98em; color: #bdbdbd; font-weight: 400; text-transform: none; }
+    .cat-list-item a { color: inherit; text-decoration: none; padding: 0.1em 0.3em; border-radius: 4px; transition: box-shadow 0.2s, background 0.2s; }
+    .cat-list-item a:hover, .cat-list-item a:focus { box-shadow: 0 2px 10px 0 #b1937a80; background: #222; color: #fff; }
+  </style>
 </head>
 
 <body>
@@ -131,30 +139,23 @@
         <button type="submit" class="search-submit border-0 position-absolute bg-transparent" style="top: 15px;right: 15px;" title="Rechercher"><svg class="search" width="24" height="24"><use xlink:href="#search"></use></svg></button>
       </form>
 
-      <h5 class="cat-list-title">Parcourir les Catégories</h5>
+      <h5 class="cat-list-title" style="text-align:center; letter-spacing:1px; font-size:0.95em; margin-bottom:1em;">PARCOURIR LES CATÉGORIES</h5>
       
       <ul class="cat-list">
-        <li class="cat-list-item">
-          <a href="#" title="Vestes">Vestes</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="T-shirts">T-shirts</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Sacs à main">Sacs à main</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Accessoires">Accessoires</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Cosmétiques">Cosmétiques</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Robes">Robes</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Combinaisons">Combinaisons</a>
-        </li>
+        <li class="cat-list-item main"><a href="shop.html">HAUTS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">TOPS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">CHEMISES</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">BLAZERS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">CROPS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">HODIES</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">GILETS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">SWEAT-SHIRTS</a></li>
+        <li class="cat-list-item main"><a href="shop.html">BOTTOM</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">PANTALONS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">JOGGING</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">JUPES</a></li>
+        <li class="cat-list-item main"><a href="shop.html">CHAUSSURES</a></li>
+        <li class="cat-list-item main"><a href="shop.html">OUTFITS</a></li>
       </ul>
 
     </div>
@@ -198,7 +199,7 @@
           </li>
         </ul>
 
-        <button class="w-100 btn btn-primary btn-lg" type="submit">Continuer vers le paiement</button>
+        <a href="checkout.html" class="w-100 btn btn-primary btn-lg" style="background:#8c6b52; color:#fff; font-size:1.3rem;">Continuer vers le paiement</a>
       </div>
     </div>
   </div>
@@ -259,7 +260,7 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="contact.html">Contact</a>
+                  <a class="nav-link active" href="contact.html" style="color: #fff;">Contact</a>
                 </li>
               </ul>
             </div>
@@ -268,11 +269,6 @@
 
         <div class="col-3 col-lg-auto">
           <ul class="list-unstyled d-flex m-0">
-            <li>
-              <a href="#" class="mx-2">
-                <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#heart"></use></svg>
-              </a>
-            </li>
             <li>
               <a href="#" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                 <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
@@ -296,9 +292,9 @@
       <div class="d-flex justify-content-between align-items-center">
         <h1 class="page-title text-uppercase">Contact</h1>
         <nav class="breadcrumb text-white">
-          <a class="breadcrumb-item" href="#">Accueil</a>
-          <a class="breadcrumb-item" href="#">Pages</a>
-          <span class="breadcrumb-item active" aria-current="page">Contact</span>
+    d     <a class="breadcrumb-item" href="#" style="color:#B1937A;">Accueil</a>
+          <a class="breadcrumb-item" href="#" style="color:#B1937A;">Pages</a>
+          <span class="breadcrumb-item active" aria-current="page" style="color:#B1937A;">Contact</span>
         </nav>
       </div>
     </div>
@@ -529,9 +525,6 @@
               </li>
               <li class="menu-item">
                 <a href="contact.html" class="item-anchor">Contactez-nous</a>
-              </li>
-              <li class="menu-item">
-                <a href="faqs.html" class="item-anchor">FAQ</a>
               </li>
             </ul>
           </div>

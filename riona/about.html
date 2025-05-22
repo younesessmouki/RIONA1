@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>RIONA - Vêtements</title>
+  <title>RIONA - About</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +19,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/rio_white.png" sizes="32x32">
+  <style>
+    .cat-list { user-select: text; -webkit-user-select: text; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2em; font-size: 1.1em; margin: 0; padding: 0; list-style: none; }
+    .cat-list-item.main { font-size: 1.18em; font-weight: bold; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+    .cat-list-item.sub { font-size: 0.98em; color: #bdbdbd; font-weight: 400; text-transform: none; }
+    .cat-list-item a { color: inherit; text-decoration: none; padding: 0.1em 0.3em; border-radius: 4px; transition: box-shadow 0.2s, background 0.2s; }
+    .cat-list-item a:hover, .cat-list-item a:focus { box-shadow: 0 2px 10px 0 #b1937a80; background: #222; color: #fff; }
+  </style>
 </head>
 
 <body>
@@ -31,7 +39,7 @@
         <path fill="none" stroke="currentColor" d="M7.5 14.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Zm0 0v-8a2 2 0 0 1 2-2h.5m-5 4h5"/>
       </symbol>
       <symbol xmlns="http://www.w3.org/2000/svg" id="twitter" viewBox="0 0 15 15">
-        <path fill="currentColor" d="m14.478 1.5l.5-.033a.5.5 0 0 0-.871-.301l.371.334Zm-.498 2.959a.5.5 0 1 0-1 0h1Zm-6.49.082h-.5h.5Zm0 .959h.5h-.5Zm-6.99 7V12a.5.5 0 0 0-.278.916L.5 12.5Zm.998-11l.469-.175a.5.5 0 0 0-.916-.048l.447.223Zm3.994 9l.354.353a.5.5 0 0 0-.195-.827l-.159.474Zm7.224-8.027l-.37.336l.18.199l.265-.04l-.075-.495Zm1.264-.94c.051.778.003 1.25-.123 1.606c-.122.345-.336.629-.723 1l.692.722c.438-.42.776-.832.974-1.388c.193-.546.232-1.178.177-2.006l-.998.066Zm0 3.654V4.46h-1v.728h1Zm-6.99-.646V5.5h1v-.959h-1Zm0 .959V6h1v-.5h-1ZM10.525 1a3.539 3.539 0 0 0-3.537 3.541h1A2.539 2.539 0 0 1 10.526 2V1Zm2.454 4.187C12.98 9.503 9.487 13 5.18 13v1c4.86 0 8.8-3.946 8.8-8.813h-1ZM1.03 1.675C1.574 3.127 3.614 6 7.49 6V5C4.174 5 2.421 2.54 1.966 1.325l-.937.35Zm.021-.398C.004 3.373-.157 5.407.604 7.139c.759 1.727 2.392 3.055 4.73 3.835l.317-.948c-2.155-.72-3.518-1.892-4.132-3.29c-.612-1.393-.523-3.11.427-5.013l-.895-.446Zm4.087 8.87C4.536 10.75 2.726 12 .5 12v1c2.566 0 4.617-1.416 5.346-2.147l-.708-.706Zm7.949-8.009A3.445 3.445 0 0 0 10.526 1v1c.721 0 1.37.311 1.82.809l.74-.671Zm-.296.83a3.513 3.513 0 0 0 2.06-1.134l-.744-.668a2.514 2.514 0 0 1-1.466.813l.15.989ZM.222 12.916C1.863 14.01 3.583 14 5.18 14v-1c-1.63 0-3.048-.011-4.402-.916l-.556.832Z"/>
+        <path fill="currentColor" d="m14.478 1.5l.5-.033a.5.5 0 0 0-.871-.301l.371.334Zm-.498 2.959a.5.5 0 1 0-1 0h1Zm-6.49.082h-.5h.5Zm-6.99 7V12a.5.5 0 0 0-.278.916L.5 12.5Zm.998-11l.469-.175a.5.5 0 0 0-.916-.048l.447.223Zm3.994 9l.354.353a.5.5 0 0 0-.195-.827l-.159.474Zm7.224-8.027l-.37.336l.18.199l.265-.04l-.075-.495Zm1.264-.94c.051.778.003 1.25-.123 1.606c-.122.345-.336.629-.723 1l.692.722c.438-.42.776-.832.974-1.388c.193-.546.232-1.178.177-2.006l-.998.066Zm0 3.654V4.46h-1v.728h1Zm-6.99-.646V5.5h1v-.959h-1Zm0 .959V6h1v-.5h-1ZM10.525 1a3.539 3.539 0 0 0-3.537 3.541h1A2.539 2.539 0 0 1 10.526 2V1Zm2.454 4.187C12.98 9.503 9.487 13 5.18 13v1c4.86 0 8.8-3.946 8.8-8.813h-1ZM1.03 1.675C1.574 3.127 3.614 6 7.49 6V5C4.174 5 2.421 2.54 1.966 1.325l-.937.35Zm.021-.398C.004 3.373-.157 5.407.604 7.139c.759 1.727 2.392 3.055 4.73 3.835l.317-.948c-2.155-.72-3.518-1.892-4.132-3.29c-.612-1.393-.523-3.11.427-5.013l-.895-.446Zm4.087 8.87C4.536 10.75 2.726 12 .5 12v1c2.566 0 4.617-1.416 5.346-2.147l-.708-.706Zm7.949-8.009A3.445 3.445 0 0 0 10.526 1v1c.721 0 1.37.311 1.82.809l.74-.671Zm-.296.83a3.513 3.513 0 0 0 2.06-1.134l-.744-.668a2.514 2.514 0 0 1-1.466.813l.15.989ZM.222 12.916C1.863 14.01 3.583 14 5.18 14v-1c-1.63 0-3.048-.011-4.402-.916l-.556.832Z"/>
       </symbol>
       <symbol xmlns="http://www.w3.org/2000/svg" id="pinterest" viewBox="0 0 15 15">
         <path fill="none" stroke="currentColor" d="m4.5 13.5l3-7m-3.236 3a2.989 2.989 0 0 1-.764-2V7A3.5 3.5 0 0 1 7 3.5h1A3.5 3.5 0 0 1 11.5 7v.5a3 3 0 0 1-3 3a2.081 2.081 0 0 1-1.974-1.423L6.5 9m1 5.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Z"/>
@@ -125,30 +133,23 @@
         <button type="submit" class="search-submit border-0 position-absolute bg-transparent" style="top: 15px;right: 15px;" title="Rechercher"><svg class="search" width="24" height="24"><use xlink:href="#search"></use></svg></button>
       </form>
 
-      <h5 class="cat-list-title">Parcourir les Catégories</h5>
+      <h5 class="cat-list-title" style="text-align:center; letter-spacing:1px; font-size:0.95em; margin-bottom:1em;">PARCOURIR LES CATÉGORIES</h5>
       
       <ul class="cat-list">
-        <li class="cat-list-item">
-          <a href="#" title="Vestes">Vestes</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="T-shirts">T-shirts</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Sacs à main">Sacs à main</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Accessoires">Accessoires</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Cosmétiques">Cosmétiques</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Robes">Robes</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Combinaisons">Combinaisons</a>
-        </li>
+        <li class="cat-list-item main"><a href="shop.html">HAUTS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">TOPS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">CHEMISES</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">BLAZERS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">CROPS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">HODIES</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">GILETS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">SWEAT-SHIRTS</a></li>
+        <li class="cat-list-item main"><a href="shop.html">BOTTOM</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">PANTALONS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">JOGGING</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">JUPES</a></li>
+        <li class="cat-list-item main"><a href="shop.html">CHAUSSURES</a></li>
+        <li class="cat-list-item main"><a href="shop.html">OUTFITS</a></li>
       </ul>
 
     </div>
@@ -192,7 +193,7 @@
           </li>
         </ul>
 
-        <button class="w-100 btn btn-primary btn-lg" type="submit">Continuer vers le paiement</button>
+        <a href="checkout.html" class="w-100 btn btn-primary btn-lg" style="background:#8c6b52; color:#fff; font-size:1.3rem;">Continuer vers le paiement</a>
       </div>
     </div>
   </div>
@@ -220,13 +221,13 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 gap-1 gap-md-4 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link active" href="index.html" aria-haspopup="true" aria-expanded="false">Accueil</a>
+                  <a class="nav-link" href="index.html" aria-haspopup="true" aria-expanded="false">Accueil</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="shop.html">Boutique</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html">À propos</a>
+                  <a class="nav-link active" href="about.html">À propos</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="dropdownPages" data-bs-toggle="dropdown"
@@ -263,11 +264,6 @@
         <div class="col-3 col-lg-auto">
           <ul class="list-unstyled d-flex m-0">
             <li>
-              <a href="#" class="mx-2">
-                <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#heart"></use></svg>
-              </a>
-            </li>
-            <li>
               <a href="#" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                 <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
               </a>
@@ -286,7 +282,7 @@
   </nav>
 
   <section class="hero-section jarallax mt-5 pt-5">
-    <img src="images/banner-large-image2.jpg" class="jarallax-img">
+    <img src="images/banner-large-image2.jpg" class="jarallax-img" alt="Bannière RIONA - Mode féminine Maroc">
     <div class="py-5">
       <div class="container">
         <div class="row">
@@ -306,32 +302,42 @@
   <section class="features py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 text-center" data-aos="fade-in" data-aos-delay="0">
+        <div class="col-md-4 text-center" data-aos="fade-in" data-aos-delay="0">
           <div class="py-5">
             <svg width="38" height="38" viewBox="0 0 24 24"><use xlink:href="#calendar"></use></svg>
             <h4 class="element-title text-capitalize my-3">Prendre Rendez-vous</h4>
-            <p>À imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+            <p>Prenez rendez-vous avec notre équipe pour une expérience personnalisée en boutique.</p>
           </div>
         </div>
-        <div class="col-md-3 text-center" data-aos="fade-in" data-aos-delay="300">
+        <div class="col-md-4 text-center" data-aos="fade-in" data-aos-delay="300">
           <div class="py-5">
             <svg width="38" height="38" viewBox="0 0 24 24"><use xlink:href="#shopping-bag"></use></svg>
             <h4 class="element-title text-capitalize my-3">Retrait en magasin</h4>
-            <p>À imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+            <p>Commandez en ligne et récupérez vos articles directement dans notre magasin.</p>
           </div>
         </div>
-        <div class="col-md-3 text-center" data-aos="fade-in" data-aos-delay="600">
+        <div class="col-md-4 text-center" data-aos="fade-in" data-aos-delay="600">
           <div class="py-5">
             <svg width="38" height="38" viewBox="0 0 24 24"><use xlink:href="#gift"></use></svg>
             <h4 class="element-title text-capitalize my-3">Emballage spécial</h4>
-            <p>À imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+            <p>Profitez d'un emballage cadeau soigné pour toutes vos commandes.</p>
           </div>
         </div>
-        <div class="col-md-3 text-center" data-aos="fade-in" data-aos-delay="900">
-          <div class="py-5">
-            <svg width="38" height="38" viewBox="0 0 24 24"><use xlink:href="#arrow-cycle"></use></svg>
-            <h4 class="element-title text-capitalize my-3">Retours gratuits mondiaux</h4>
-            <p>À imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+      </div>
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-10">
+          <div class="py-4 px-4 bg-light border rounded text-center" style="box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+            <svg width="38" height="38" viewBox="0 0 24 24" style="margin-bottom:10px;"><use xlink:href="#arrow-cycle"></use></svg>
+            <h4 class="element-title text-capitalize my-3">Info importante pour les commandes</h4>
+            <p style="text-align:left;font-size:1rem;max-width:700px;margin:auto;">
+              Une fois que votre commande arrive, vous avez le droit de la vérifier devant le livreur.<br>
+              N'hésitez pas à lui demander de patienter pendant que vous ouvrez le colis.<br>
+              Si le produit ne vous convient pas, vous pouvez le retourner immédiatement au livreur.<br>
+              <b>Attention :</b> si vous acceptez la commande sans la vérifier devant le livreur, aucun retour, aucun échange d'article et aucun remboursement ne seront possibles.<br>
+              <b>Concernant l'échange de taille :</b> il est possible, mais vous devez nous informer le jour même de la livraison.<br>
+              (Les frais de livraison pour l'échange seront à votre charge.)<br>
+              Merci pour votre compréhension !
+            </p>
           </div>
         </div>
       </div>
@@ -349,42 +355,13 @@
           </div>
           <div class="col-md-6">
             <div class="section-element p-5">
-              <h2 class="element-title text-uppercase">Le début de notre voyage</h2>
-              <p>Le début de notre voyage vel tellus Turpis purus, gravida orci, fringilla a. Ac sed eu fringilla odio mi. Consequat pharetra at magna imperdiet cursus ac faucibus sit libero. Ultricies quam nunc, lorem sit lorem urna, pretium aliquam ut. In vel, quis donec dolor id in. Pulvinar commodo mollis diam sed facilisis at magna imperdiet cursus ac faucibus sit libero.</p>
+              <h2 class="element-title text-uppercase">À propos de RIONA</h2>
+              <p>RIONA est une marque marocaine fondée en 2019 par deux jeunes ambitieux, passionnés par la mode et les tendances. Spécialisée dans le prêt-à-porter féminin, RIONA s'est rapidement fait connaître grâce à ses accessoires stylés, qui ont marqué ses débuts.<br><br>
+Tous nos produits sont soigneusement importés de Turquie, sans exception, afin de garantir à nos clientes une qualité irréprochable et un style toujours à la pointe. En janvier 2021, nous avons ouvert notre tout premier magasin, une étape importante dans notre aventure.<br><br>
+Aujourd'hui, nous nourrissons de grandes ambitions : ouvrir plusieurs boutiques dans différentes villes du Maroc pour être encore plus proches de notre fidèle clientèle, qui nous accompagne depuis leur tout premier achat. Ce n'est que le début, et le meilleur reste à venir, inshallah.</p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="vertical-element py-5">
-      <div class="container">
-        <div class="row d-flex align-items-center justify-content-between">
-          <div class="col-md-6">
-            <div class="section-element p-5">
-              <h2 class="element-title text-uppercase">Qui sommes-nous ?</h2>
-              <p>Nous sommes nunc, lorem sit lorem urna, pretium aliquam ut. In vel, quis donec dolor id in. Pulvinar commodo mollis diam sed facilisis at magna imperdiet cursus ac faucibus sit libero. Dignissim lacus, turpis ut suspendisse vel tellus. Turpis purus, gravida orci, fringilla a. Ac sed eu fringilla odio mi. Consequat pharetra at magna imperdiet cursus ac faucibus sit libero.</p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="image-holder text-right">
-              <img src="images/single-image2.jpg" alt="about-us" class="img-fluid">
-            </div>
-          </div>
-        </div>
-      </div>  
-    </div>
-  </section> 
-  
-  <section class="video py-5">
-    <div class="video-content open-up" data-aos="zoom-out">
-      <div class="video-bg">
-        <img src="images/banner-large-image.jpg" alt="video" class="video-image img-fluid">
-      </div>
-      <div class="video-player">
-            <a class="youtube" href="https://www.youtube.com/embed/pjtsGzQjFM4">
-              <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#play"></use></svg>
-              <img src="images/text-pattern.png" alt="pattern" class="text-rotate">
-            </a>
           </div>
     </div>
   </section>
@@ -431,88 +408,6 @@
     </div>
     <div class="testimonial-swiper-pagination d-flex justify-content-center mb-5"></div>
   </section>
-
-  <section class="blog py-5">
-    <div class="container">        
-      <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3"> 
-        <h4 class="text-uppercase">Lire les Articles du Blog</h4>
-        <a href="blog-classic.html" class="btn-link">Voir Tout</a>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="single-post.html">
-                <img src="images/post-image1.jpg" alt="image" class="post-grid-image img-fluid">
-              </a>
-            </div>
-            <div class="post-content d-flex flex-wrap gap-2 my-3">
-              <div class="post-meta text-uppercase fs-6 text-secondary">
-                <span class="post-category">Mode /</span>
-                <span class="meta-day"> 11 juil. 2022</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="single-post.html">Comment se démarquer en pastel</a>
-              </h5>
-              <p>Dignissim lacus,turpis ut suspendisse vel tellus.Turpis purus,gravida orci,fringilla...</p>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="single-post.html">
-                <img src="images/post-image2.jpg" alt="image" class="post-grid-image img-fluid">
-              </a>
-            </div>
-            <div class="post-content d-flex flex-wrap gap-2 my-3">
-              <div class="post-meta text-uppercase fs-6 text-secondary">
-                <span class="post-category">Mode /</span>
-                <span class="meta-day"> 11 juil. 2022</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="single-post.html">Top 10 des tendances mode pour l'été</a>
-              </h5>
-              <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="single-post.html">
-                <img src="images/post-image3.jpg" alt="image" class="post-grid-image img-fluid">
-              </a>
-            </div>
-            <div class="post-content d-flex flex-wrap gap-2 my-3">
-              <div class="post-meta text-uppercase fs-6 text-secondary">
-                <span class="post-category">Mode /</span>
-                <span class="meta-day"> 11 juil. 2022</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="single-post.html">Mode folle avec des moments uniques</a>
-              </h5>
-              <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section class="logo-bar py-5">
-    <div class="container">
-      <div class="row">
-        <div class="logo-content d-flex flex-wrap justify-content-between">
-          <img src="images/logo1.png" alt="logo" class="logo-image img-fluid">
-          <img src="images/logo2.png" alt="logo" class="logo-image img-fluid">
-          <img src="images/logo3.png" alt="logo" class="logo-image img-fluid">
-          <img src="images/logo4.png" alt="logo" class="logo-image img-fluid">
-          <img src="images/logo5.png" alt="logo" class="logo-image img-fluid">
-        </div>
-      </div>
-    </div>
-  </section>
   
   <section class="newsletter jarallax">
     <div class="container">
@@ -537,21 +432,21 @@
         <h6 class="element-title text-center">Suivez-nous sur Instagram</h6>
         <div class="col-4 col-sm-4 col-md-4">
           <div class="insta-item">
-            <a href="https://www.instagram.com/templatesjungle/" target="_blank">
+            <a href="https://www.instagram.com/rionaofficial/" target="_blank" rel="noopener">
               <img src="images/insta-item1.jpg" alt="instagram" class="insta-image img-fluid">
             </a>
           </div>
         </div>
         <div class="col-4 col-sm-4 col-md-4">
           <div class="insta-item">
-            <a href="https://www.instagram.com/templatesjungle/" target="_blank">
+            <a href="https://www.instagram.com/rionaofficial/" target="_blank" rel="noopener">
               <img src="images/insta-item2.jpg" alt="instagram" class="insta-image img-fluid">
             </a>
           </div>
         </div>
         <div class="col-4 col-sm-4 col-md-4">
           <div class="insta-item">
-            <a href="https://www.instagram.com/templatesjungle/" target="_blank">
+            <a href="https://www.instagram.com/rionaofficial/" target="_blank" rel="noopener">
               <img src="images/insta-item3.jpg" alt="instagram" class="insta-image img-fluid">
             </a>
           </div>
@@ -570,43 +465,22 @@
                 <img src="images/rio.png" alt="logo">
               </a>
             </div>
-            <p>Gravida massa volutpat aenean odio. Amet, turpis erat nullam fringilla elementum diam in. Nisi, purus
-              vitae, ultrices nunc. Sit ac sit suscipit hendrerit.</p>
+            <p>Bienvenue chez RIONA, votre boutique de mode. Contactez-nous pour toute question ou suggestion.</p>
             <div class="social-links">
               <ul class="list-unstyled d-flex flex-wrap gap-3">
                 <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#facebook"></use>
-                    </svg>
+                  <a href="https://wa.me/212600450046" class="text-secondary" target="_blank" rel="noopener">
+                    <img src="images/whatsapp.png" alt="WhatsApp" width="32" height="32" style="object-fit:contain;">
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#twitter"></use>
-                    </svg>
+                  <a href="https://www.instagram.com/rionaofficial/" class="text-secondary" target="_blank" rel="noopener">
+                    <img src="images/instagram.png" alt="Instagram" width="32" height="32" style="object-fit:contain;">
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#youtube"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#pinterest"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#instagram"></use>
-                    </svg>
+                  <a href="https://www.tiktok.com/search?q=%40rionaofficial01" class="text-secondary" target="_blank" rel="noopener">
+                    <img src="images/tiktok.png" alt="TikTok" width="32" height="32" style="object-fit:contain;">
                   </a>
                 </li>
               </ul>
@@ -615,59 +489,47 @@
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="footer-menu footer-menu-002">
-            <h5 class="widget-title text-uppercase mb-4">Liens Rapides</h5>
+            <h5 class="widget-title text-uppercase mb-4">Liens rapides</h5>
             <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
               <li class="menu-item">
                 <a href="index.html" class="item-anchor">Accueil</a>
               </li>
               <li class="menu-item">
-                <a href="shop-four-column-wide.html" class="item-anchor">À propos</a>
+                <a href="shop.html" class="item-anchor">Boutique</a>
               </li>
               <li class="menu-item">
-                <a href="blog.html" class="item-anchor">Services</a>
+                <a href="about.html" class="item-anchor">À propos</a>
               </li>
               <li class="menu-item">
-                <a href="styles.html" class="item-anchor">Article unique</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Contact</a>
+                <a href="contact.html" class="item-anchor">Contact</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="footer-menu footer-menu-003">
-            <h5 class="widget-title text-uppercase mb-4">Aide & Info</h5>
+            <h5 class="widget-title text-uppercase mb-4">Aide & Infos</h5>
             <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
               <li class="menu-item">
-                <a href="#" class="item-anchor">Suivre Votre Commande</a>
+                <a href="#" class="item-anchor">Suivi de commande</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Retours + Échanges</a>
+                <a href="#" class="item-anchor">Retours & Échanges</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Livraison + Expédition</a>
+                <a href="#" class="item-anchor">Livraison</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Contactez-nous</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Nous trouver facilement</a>
-              </li>
-              <li class="menu-item">
-                <a href="faqs.html" class="item-anchor">FAQ</a>
+                <a href="contact.html" class="item-anchor">Contactez-nous</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="footer-menu footer-menu-004 border-animation-left">
-            <h5 class="widget-title text-uppercase mb-4">Contactez-nous</h5>
-            <p>Avez-vous des questions ou des suggestions ? <a href="mailto:contact@yourcompany.com"
-                class="item-anchor">contact@yourcompany.com</a></p>
-            <p>Besoin d'aide ? Appelez-nous. <a href="tel:+43 720 11 52 78" class="item-anchor">+43 720 11 52
-                78</a>
-            </p>
+            <h5 class="widget-title text-uppercase mb-4">Contact</h5>
+            <p>Des questions ou suggestions ? <a href="mailto:officialriona@gmail.com" class="item-anchor">officialriona@gmail.com</a></p>
+            <p>Besoin d'aide ? Écrivez-nous sur WhatsApp : <a href="https://wa.me/212600450046" class="item-anchor">+212 600 450 046</a></p>
           </div>
         </div>
       </div>
@@ -684,8 +546,7 @@
             </div>
           </div>
           <div class="col-md-6 text-md-end">
-            <p>© Copyright 2025 Leo. Tous droits réservés. Design par <a href="https://templatesjungle.com"
-                target="_blank" rel="noopener">TemplatesJungle</a></p>
+            <p>© Copyright 2025 RIONA. Tous droits réservés.</p>
           </div>
         </div>
       </div>
