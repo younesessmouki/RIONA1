@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - RIONA - Clothes</title>
+    <title>Tableau de Bord Admin - RIONA - Vêtements</title>
     <link rel="icon" type="image/png" href="images/title2.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
@@ -335,18 +335,18 @@
         </div>
         <ul class="nav flex-column" id="sidebarNavLinks">
             <li class="nav-item">
-                <a class="nav-link active" href="#products" data-bs-toggle="tab" data-title="Products">
-                    <i class="bi bi-box"></i> Products
+                <a class="nav-link active" href="#products" data-bs-toggle="tab" data-title="Produits">
+                    <i class="bi bi-box"></i> Produits
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#orders" data-bs-toggle="tab" data-title="Orders">
-                    <i class="bi bi-cart"></i> Orders
+                <a class="nav-link" href="#orders" data-bs-toggle="tab" data-title="Commandes">
+                    <i class="bi bi-cart"></i> Commandes
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#customers" data-bs-toggle="tab" data-title="Customers">
-                    <i class="bi bi-people"></i> Customers
+                <a class="nav-link" href="#customers" data-bs-toggle="tab" data-title="Clients">
+                    <i class="bi bi-people"></i> Clients
                 </a>
             </li>
             <li class="nav-item">
@@ -356,7 +356,7 @@
             </li>
             <li class="nav-item mt-auto">
                 <a class="nav-link" href="#" id="logoutBtn">
-                    <i class="bi bi-box-arrow-right"></i> Logout
+                    <i class="bi bi-box-arrow-right"></i> Déconnexion
                 </a>
             </li>
         </ul>
@@ -369,33 +369,33 @@
                     <!-- Products Tab -->
                     <div class="tab-pane fade show active" id="products">
                         <div class="content-header d-flex justify-content-between align-items-center">
-                            <h2 class="d-none d-md-block">Products</h2>
+                            <h2 class="d-none d-md-block">Produits</h2>
                             <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#addProductModal">
-                                <i class="bi bi-plus-lg"></i> Add New Product
+                                <i class="bi bi-plus-lg"></i> Ajouter un Produit
                             </button>
                         </div>
                         <div class="row mb-4">
                             <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                                 <div class="card text-center p-3">
-                                    <h5>Total Visits</h5>
+                                    <h5>Visites Totales</h5>
                                     <div class="display-6 fw-bold">12,345</div>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                                 <div class="card text-center p-3">
-                                    <h5>Revenue</h5>
+                                    <h5>Revenus</h5>
                                     <div class="display-6 fw-bold">8,900 MAD</div>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-4">
                                 <div class="card text-center p-3">
-                                    <h5>Orders</h5>
+                                    <h5>Commandes</h5>
                                     <div class="display-6 fw-bold">1,234</div>
                                 </div>
                             </div>
                         </div>
                         <div class="card p-4 mb-4">
-                            <h5 class="mb-3">Site Statistics</h5>
+                            <h5 class="mb-3">Statistiques du Site</h5>
                             <canvas id="siteStatsChart" height="100"></canvas>
                         </div>
                         <div class="table-container">
@@ -404,9 +404,9 @@
                                     <thead>
                                         <tr>
                                             <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Category</th>
-                                            <th>Price</th>
+                                            <th>Nom</th>
+                                            <th>Catégorie</th>
+                                            <th>Prix</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -420,7 +420,7 @@
                     <!-- Orders Tab -->
                     <div class="tab-pane fade" id="orders">
                         <div class="content-header">
-                            <h2>Orders</h2>
+                            <h2>Commandes</h2>
                         </div>
                         <div class="table-container">
                             <!-- Orders content will be added here -->
@@ -429,7 +429,7 @@
                     <!-- Customers Tab -->
                     <div class="tab-pane fade" id="customers">
                         <div class="content-header">
-                            <h2>Customers</h2>
+                            <h2>Clients</h2>
                         </div>
                         <div class="table-container">
                             <!-- Customers content will be added here -->
@@ -438,7 +438,7 @@
                     <!-- Newsletter Tab -->
                     <div class="tab-pane fade" id="newsletter">
                         <div class="content-header">
-                            <h2>Newsletter Subscribers</h2>
+                            <h2>Abonnés Newsletter</h2>
                         </div>
                         <div class="table-container">
                             <div class="table-responsive">
@@ -446,7 +446,7 @@
                                     <thead>
                                         <tr>
                                             <th>Email</th>
-                                            <th>Date Subscribed</th>
+                                            <th>Date d'Inscription</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -467,47 +467,47 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Add New Product</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">Ajouter un Nouveau Produit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
                 </div>
                 <div class="modal-body">
                     <form id="addProductForm">
                         <div class="mb-3">
-                            <label for="productName" class="form-label">Product Name</label>
-                            <input type="text" class="form-control" id="productName" name="name" required placeholder="Enter product name">
+                            <label for="productName" class="form-label">Nom du Produit</label>
+                            <input type="text" class="form-control" id="productName" name="name" required placeholder="Entrez le nom du produit">
                         </div>
                         <div class="mb-3">
                             <label for="productDescription" class="form-label">Description</label>
-                            <textarea class="form-control" id="productDescription" name="description" required placeholder="Enter product description"></textarea>
+                            <textarea class="form-control" id="productDescription" name="description" required placeholder="Entrez la description du produit"></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="productPrice" class="form-label">Price</label>
-                            <input type="number" class="form-control" id="productPrice" name="price" step="0.01" required placeholder="Enter product price">
+                            <label for="productPrice" class="form-label">Prix</label>
+                            <input type="number" class="form-control" id="productPrice" name="price" step="0.01" required placeholder="Entrez le prix du produit">
                         </div>
                         <div class="mb-3">
-                            <label for="productCategory" class="form-label">Category</label>
-                            <select class="form-control" id="productCategory" name="category" required aria-label="Select product category">
-                                <option value="jackets">Jackets</option>
+                            <label for="productCategory" class="form-label">Catégorie</label>
+                            <select class="form-control" id="productCategory" name="category" required aria-label="Sélectionnez la catégorie du produit">
+                                <option value="jackets">Vestes</option>
                                 <option value="t-shirts">T-shirts</option>
-                                <option value="handbags">Handbags</option>
-                                <option value="accessories">Accessories</option>
-                                <option value="cosmetics">Cosmetics</option>
-                                <option value="dresses">Dresses</option>
-                                <option value="jumpsuits">Jumpsuits</option>
+                                <option value="handbags">Sacs à main</option>
+                                <option value="accessories">Accessoires</option>
+                                <option value="cosmetics">Cosmétiques</option>
+                                <option value="dresses">Robes</option>
+                                <option value="jumpsuits">Combinaisons</option>
                             </select>
                         </div>
                         <div class="mb-3 image-preview" id="imagePreviewContainer" style="display:none;">
-                            <img id="imagePreview" src="#" alt="Preview" />
+                            <img id="imagePreview" src="#" alt="Aperçu" />
                         </div>
                         <div class="mb-3">
-                            <label for="productImage" class="form-label">Product Image</label>
+                            <label for="productImage" class="form-label">Image du Produit</label>
                             <input type="file" class="form-control" id="productImage" name="image" accept="image/*">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="saveProductBtn">Save Product</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" id="saveProductBtn">Enregistrer le Produit</button>
                 </div>
             </div>
         </div>
@@ -552,7 +552,7 @@
 
             try {
                 button.disabled = true;
-                button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Saving...';
+                button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enregistrement...';
 
                 const response = await fetch('/api/products', {
                     method: 'POST',
@@ -572,7 +572,7 @@
                 console.error('Error adding product:', error);
             } finally {
                 button.disabled = false;
-                button.innerHTML = 'Save Product';
+                button.innerHTML = 'Enregistrer le Produit';
             }
         });
 
@@ -632,8 +632,8 @@
                 const errorAlert = document.createElement('div');
                 errorAlert.className = 'alert alert-danger alert-dismissible fade show';
                 errorAlert.innerHTML = `
-                    <strong>Error!</strong> ${error.message || 'Failed to load subscribers. Please check if the server is running.'}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong>Erreur !</strong> ${error.message || "Impossible de charger les abonnés. Veuillez vérifier si le serveur est en cours d'exécution."}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
                 `;
                 document.querySelector('#newsletter .content-header').appendChild(errorAlert);
             }
@@ -641,7 +641,7 @@
 
         // Delete newsletter subscriber
         async function deleteSubscriber(email) {
-            if (confirm(`Are you sure you want to remove ${email} from the newsletter list?`)) {
+            if (confirm(`Êtes-vous sûr de vouloir supprimer ${email} de la liste de la newsletter ?`)) {
                 try {
                     // Properly encode the email for the URL
                     const encodedEmail = encodeURIComponent(email);
@@ -666,8 +666,8 @@
                         const successAlert = document.createElement('div');
                         successAlert.className = 'alert alert-success alert-dismissible fade show';
                         successAlert.innerHTML = `
-                            <strong>Success!</strong> Subscriber ${email} has been removed from the database.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <strong>Succès !</strong> L'abonné ${email} a été supprimé de la base de données.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
                         `;
                         document.querySelector('#newsletter .content-header').appendChild(successAlert);
 
@@ -687,8 +687,8 @@
                     const errorAlert = document.createElement('div');
                     errorAlert.className = 'alert alert-danger alert-dismissible fade show';
                     errorAlert.innerHTML = `
-                        <strong>Error!</strong> ${error.message || 'Failed to remove subscriber. Please try again.'}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <strong>Erreur !</strong> ${error.message || "Impossible de supprimer l'abonné. Veuillez réessayer."}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
                     `;
                     document.querySelector('#newsletter .content-header').appendChild(errorAlert);
 

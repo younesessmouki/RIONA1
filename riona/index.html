@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <title>RIONA - Vêtements</title>
+  
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +20,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-
+  <link rel="icon" type="image/png" href="images/title.png" sizes="32x32">
+  <style>
+    .cat-list { user-select: text; -webkit-user-select: text; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2em; font-size: 1.1em; margin: 0; padding: 0; list-style: none; }
+    .cat-list-item.main { font-size: 1.18em; font-weight: bold; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+    .cat-list-item.sub { font-size: 0.98em; color: #bdbdbd; font-weight: 400; text-transform: none; }
+    .cat-list-item a { color: inherit; text-decoration: none; padding: 0.1em 0.3em; border-radius: 4px; transition: box-shadow 0.2s, background 0.2s; }
+    .cat-list-item a:hover, .cat-list-item a:focus { box-shadow: 0 2px 10px 0 #b1937a80; background: #222; color: #fff; }
+  </style>
+  
 </head>
-<body>
+<body>87656
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <defs>
       <symbol id="random-1" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="M12 21.998c-3.368.04-6.828-.434-8.207-1.388a4.35 4.35 0 0 1-1.589-1.998c-.508-1.31-.022-2.998.95-6.375C4.235 8.488 5.746 7.5 9.65 7.5h3.78c3.557 0 5.073.87 6.07 3.5"/><path d="M7 8V6.364C7 3.954 9.015 2 11.5 2S16 3.954 16 6.364V8m-1.858 6.442c1.207-.731 2.26-.437 2.893.033c.259.192.389.288.465.288s.206-.096.465-.288c.633-.47 1.686-.764 2.893-.033c1.584.96 1.942 4.125-1.71 6.795c-.697.509-1.044.763-1.648.763s-.951-.254-1.647-.763c-3.653-2.67-3.295-5.836-1.711-6.795M10.5 11h2"/></g></symbol>
@@ -125,7 +134,7 @@
 
   <div class="preloader text-white fs-6 text-uppercase overflow-hidden"></div>
 
-  <div class="search-popup" data-bs-theme="dark">
+   <div class="search-popup" data-bs-theme="dark">
     <div class="search-popup-container">
 
       <form role="search" method="get" class="form-group" action="index.html">
@@ -133,30 +142,25 @@
         <button type="submit" class="search-submit border-0 position-absolute bg-transparent" style="top: 15px;right: 15px;" title="Rechercher"><svg class="search" width="24" height="24"><use xlink:href="#search"></use></svg></button>
       </form>
 
-      <h5 class="cat-list-title">Parcourir les Catégories</h5>
+      <h5 class="cat-list-title" style="text-align:center; letter-spacing:1px; font-size:0.95em; margin-bottom:1em;">PARCOURIR LES CATÉGORIES</h5>
       
       <ul class="cat-list">
-        <li class="cat-list-item">
-          <a href="#" title="Vestes">Vestes</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="T-shirts">T-shirts</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Sacs à main">Sacs à main</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Accessoires">Accessoires</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Cosmétiques">Cosmétiques</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Robes">Robes</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Combinaisons">Combinaisons</a>
-        </li>
+        <li class="cat-list-item main"><a href="shop.html">HAUTS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">TOPS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">CHEMISES</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">BLAZERS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">CROPS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">HODIES</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">GILETS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">SWEAT-SHIRTS</a></li>
+        <li class="cat-list-item main"><a href="shop.html">BOTTOM</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">PANTALONS</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">JOGGING</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">JUPES</a></li>
+        <li class="cat-list-item main"><a href="shop.html">CHAUSSURES</a></li>
+        <li class="cat-list-item main"><a href="shop.html">OUTFITS</a></li>
+        <li class="cat-list-item main"><a href="shop.html">ACCESSOIRES</a></li>
+        <li class="cat-list-item sub"><a href="shop.html">CEINTURES</a></li>
       </ul>
 
     </div>
@@ -199,8 +203,11 @@
             <strong>2600€</strong>
           </li>
         </ul>
+<!-- make change here -->
+            <button class="w-100 btn btn-primary btn-lg" type="button" onclick="window.location.href='../riona/checkout.html'">
+              Continuer vers le paiement
+            </button>
 
-        <button class="w-100 btn btn-primary btn-lg" type="submit">Continuer vers le paiement</button>
       </div>
     </div>
   </div>
@@ -252,12 +259,8 @@
                     <li>
                       <a href="contact.html" class="dropdown-item item-anchor">Contact</a>
                     </li>
-                    <li>
-                      <a href="my-account.html" class="dropdown-item item-anchor">Mon Compte</a>
-                    </li>
-                    <li>
-                      <a href="wishlist.html" class="dropdown-item item-anchor">Liste de souhaits</a>
-                    </li>
+                
+                
                   </ul>
                 </li>
                 <li class="nav-item">
@@ -270,11 +273,7 @@
 
         <div class="col-3 col-lg-auto">
           <ul class="list-unstyled d-flex m-0">
-            <li>
-              <a href="#" class="mx-2">
-                <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#heart"></use></svg>
-              </a>
-            </li>
+        
             <li>
               <a href="#" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                 <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
@@ -303,7 +302,7 @@
               <div class="banner-content col-lg-7 py-md-5">
                 <h2 class="display-1 txt-fx slide-up">Élégance Intemporelle</h2>
                 <p class="text-white">Nos pièces allient liberté de mouvement et finitions soignées. Conçues pour s'adapter à votre quotidien, elles offrent un équilibre subtil entre confort, fonctionnalité et esthétique contemporaine.</p>
-                <button href="#" class="button button--bestia text-uppercase mt-3">
+                <button href="../riona/shop.html" class="button button--bestia text-uppercase mt-3">
                   <div class="button__bg"></div><span>Shop Collection</span>
                 </button>
               </div>
@@ -317,7 +316,7 @@
               <div class="banner-content col-lg-7 py-md-5">
                 <h2 class="display-1 txt-fx slide-up">Savoir-faire Inégalé</h2>
                 <p class="text-white">Des matières nobles, travaillées dans le respect de l'artisanat, pour des pièces qui racontent une éthique autant qu'une esthétique.</p>
-                <button href="#" class="button button--bestia text-uppercase mt-3">
+                <button href="../riona/shop.html" class="button button--bestia text-uppercase mt-3">
                   <div class="button__bg"></div><span>Shop Collection</span>
                 </button>
               </div>
@@ -331,7 +330,7 @@
               <div class="banner-content col-lg-7 py-md-5">
                 <h2 class="display-1 txt-fx slide-up">Vêtements 100% Authentique</h2>
                 <p class="text-white">Essence du luxe contemporain: des lignes épurées, des matières nobles, une construction impeccable. Pas d'artifices, juste l'authenticité d'un artisanat qui parle pour lui-même.</p>
-                <button href="#" class="button button--bestia text-uppercase mt-3">
+                <button href="../riona/shop.html" class="button button--bestia text-uppercase mt-3">
                   <div class="button__bg"></div><span>Shop Collection</span>
                 </button>
               </div>
@@ -418,54 +417,201 @@
     </div>
   </section>
 
-  <section class="categories">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 cat-item position-relative">
-          <div class="image-holder">
-            <a href="shop-four-column-wide.html"><img src="images/category-banner-1.jpg" alt="categories" class="product-image img-fluid"></a>
-            <div class="category-content position-absolute bottom-0 p-5 text-uppercase">
-              <h4 class="section-title text-white">For Men</h4>
-              <a href="shop-four-column-wide.html" class="text-white btn-link">Shop it Now</a>
-            </div>
+  <section class="newsletter jarallax">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 py-5 my-5">
+          <div class="subscribe-header text-center pb-3">
+            <h3 class="section-title text-uppercase text-white">Pour les femmes</h3>
+            <a href="shop-four-column-wide.html" class="text-white btn-link">Achetez-le maintenant</a>
           </div>
-        </div>
-        <div class="col-md-4 cat-item position-relative">
-          <div class="image-holder">
-            <a href="shop-four-column-wide.html"><img src="images/category-banner-2.jpg" alt="categories" class="product-image img-fluid"></a>
-            <div class="category-content position-absolute bottom-0 p-5 text-uppercase">
-              <h4 class="section-title text-white">For Women</h4>
-              <a href="shop-four-column-wide.html" class="text-white btn-link">Shop it Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 cat-item position-relative">
-          <div class="image-holder">
-            <a href="shop-four-column-wide.html"><img src="images/category-banner-3.jpg" alt="categories" class="product-image img-fluid"></a>
-            <div class="category-content position-absolute bottom-0 p-5 text-uppercase">
-              <h4 class="section-title text-white">For Accessories</h4>
-              <a href="shop-four-column-wide.html" class="text-white btn-link">Shop it Now</a>
-            </div>
+          <div class="category-content position-absolute bottom-0 p-5 text-uppercase">
+            
           </div>
         </div>
       </div>
     </div>
+    <img src="images/bg-newsletter.jpg" alt="newsletter" class="jarallax-img img-fluid" />
   </section>
 
-  <section class="product-grid py-5 bg-white">
+
+
+  <section id="related-products" class="related-products product-carousel py-5 position-relative overflow-hidden">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
+        <h4 class="text-uppercase">Categories</h4>
+        <a href="shop-sidebar.html" class="btn-link">Voir tous les produits</a>
+      </div>
+      <div class="swiper product-swiper open-up" data-aos="zoom-out">
+        <div class="swiper-wrapper d-flex">
+          <div class="swiper-slide">
+            <div class="product-item image-zoom-effect link-effect">
+              <div class="image-holder">
+                <a href="single-product.html">
+                  <img src="images/product-thumb-1.jpg" alt="product" class="product-image img-fluid">
+                </a>
+                <a href="wishlist.html" class="btn-icon btn-wishlist rounded-circle">
+                  <svg width="24" height="24" viewBox="0 0 24 24">
+                    <use xlink:href="#heart"></use>
+                  </svg>
+                </a>
+                <div class="product-content">
+                  <h5 class="text-uppercase fs-5 mt-3">
+                    <a href="single-product.html">Dark florish onepiece</a>
+                  </h5>
+                  <a href="cart.html" class="text-decoration-none" data-after="Add to cart"><span>$95.00</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-item image-zoom-effect link-effect">
+              <div class="image-holder">
+                <a href="single-product.html">
+                  <img src="images/product-thumb-2.jpg" alt="product" class="product-image img-fluid">
+                </a>
+                <a href="wishlist.html" class="btn-icon btn-wishlist rounded-circle">
+                  <svg width="24" height="24" viewBox="0 0 24 24">
+                    <use xlink:href="#heart"></use>
+                  </svg>
+                </a>
+                <div class="product-content">
+                  <h5 class="text-uppercase fs-5 mt-3">
+                    <a href="single-product.html">Baggy Shirt</a>
+                  </h5>
+                  <a href="cart.html" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-item image-zoom-effect link-effect">
+              <div class="image-holder">
+                <a href="single-product.html">
+                  <img src="images/product-thumb-3.jpg" alt="product" class="product-image img-fluid">
+                </a>
+                <a href="wishlist.html" class="btn-icon btn-wishlist rounded-circle">
+                  <svg width="24" height="24" viewBox="0 0 24 24">
+                    <use xlink:href="#heart"></use>
+                  </svg>
+                </a>
+                <div class="product-content">
+                  <h5 class="text-uppercase fs-5 mt-3">
+                    <a href="single-product.html">Cotton off-white shirt</a>
+                  </h5>
+                  <a href="cart.html" class="text-decoration-none" data-after="Add to cart"><span>$65.00</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-item image-zoom-effect link-effect">
+              <div class="image-holder">
+                <a href="single-product.html">
+                  <img src="images/product-thumb-4.jpg" alt="product" class="product-image img-fluid">
+                </a>
+                <a href="wishlist.html" class="btn-icon btn-wishlist rounded-circle">
+                  <svg width="24" height="24" viewBox="0 0 24 24">
+                    <use xlink:href="#heart"></use>
+                  </svg>
+                </a>
+                <div class="product-content">
+                  <h5 class="text-uppercase fs-5 mt-3">
+                    <a href="single-product.html">Handmade crop sweater</a>
+                  </h5>
+                  <a href="cart.html" class="text-decoration-none" data-after="Add to cart"><span>$50.00</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-item image-zoom-effect link-effect">
+              <div class="image-holder">
+                <a href="single-product.html">
+                  <img src="images/product-thumb-5.jpg" alt="product" class="product-image img-fluid">
+                </a>
+                <a href="wishlist.html" class="btn-icon btn-wishlist rounded-circle">
+                  <svg width="24" height="24" viewBox="0 0 24 24">
+                    <use xlink:href="#heart"></use>
+                  </svg>
+                </a>
+                <div class="product-content">
+                  <h5 class="text-uppercase fs-5 mt-3">
+                    <a href="single-product.html">Handmade crop sweater</a>
+                  </h5>
+                  <a href="cart.html" class="text-decoration-none" data-after="Add to cart"><span>$70.00</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-item image-zoom-effect link-effect">
+              <div class="image-holder">
+                <a href="single-product.html">
+                  <img src="images/product-thumb-6.jpg" alt="product" class="product-image img-fluid">
+                </a>
+                <a href="wishlist.html" class="btn-icon btn-wishlist rounded-circle">
+                  <svg width="24" height="24" viewBox="0 0 24 24">
+                    <use xlink:href="#heart"></use>
+                  </svg>
+                </a>
+                <div class="product-content">
+                  <h5 class="text-uppercase fs-5 mt-3">
+                    <a href="single-product.html">Handmade crop sweater</a>
+                  </h5>
+                  <a href="cart.html" class="text-decoration-none" data-after="Add to cart"><span>$70.00</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-item image-zoom-effect link-effect">
+              <div class="image-holder">
+                <a href="single-product.html">
+                  <img src="images/product-thumb-7.jpg" alt="product" class="product-image img-fluid">
+                </a>
+                <a href="wishlist.html" class="btn-icon btn-wishlist rounded-circle">
+                  <svg width="24" height="24" viewBox="0 0 24 24">
+                    <use xlink:href="#heart"></use>
+                  </svg>
+                </a>
+                <div class="product-content">
+                  <h5 class="text-uppercase fs-5 mt-3">
+                    <a href="single-product.html">Handmade crop sweater</a>
+                  </h5>
+                  <a href="cart.html" class="text-decoration-none" data-after="Add to cart"><span>$70.00</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <div class="icon-arrow icon-arrow-left"><svg width="50" height="50" viewBox="0 0 24 24">
+          <use xlink:href="#angle-left"></use>
+        </svg></div>
+      <div class="icon-arrow icon-arrow-right"><svg width="50" height="50" viewBox="0 0 24 24">
+          <use xlink:href="#angle-right"></use>
+        </svg></div>
+    </div>
+  </div>
+</section>
+
+
+   <section class="product-grid py-5 bg-white">
     <div class="container">
       <div class="row justify-content-center text-center">
         <div class="col-lg-6 my-5">
-          <h3 class="text-primary display-2">Featured Collection</h3>
-          <span>Handmade leather bags for any occassion</span>
+          <h3 class="text-primary display-2">Collection en vedette</h3>
+          <span>Découvrez Notre Collection Exclusive</span>
         </div>
       </div>
       <div class="row">
         
         <div id="filters" class="button-group d-flex gap-4 justify-content-center py-5">
-          <a href="#" class="btn-link text-dark text-uppercase is-checked" data-filter=".bestsellers">Best Sellers</a>
-          <a href="#" class="btn-link text-dark text-uppercase" data-filter=".newarrivals">New Arrivals</a>
-          <a href="#" class="btn-link text-dark text-uppercase" data-filter=".bestreviewed">Best Reviewed</a>
+          <a href="#" class="btn-link text-dark text-uppercase is-checked" data-filter=".bestsellers">Meilleures ventes</a>
+          <a href="#" class="btn-link text-dark text-uppercase" data-filter=".newarrivals">Nouveautés</a>
+          <!-- <a href="#" class="btn-link text-dark text-uppercase" data-filter=".bestreviewed">Best Reviewed</a> -->
         </div>
 
         <div class="grid p-0 clearfix">
@@ -480,7 +626,7 @@
               </a>
               <div class="product-content">
                 <h5 class="element-title text-uppercase fs-5 mt-3">
-                  <a href="single-product.html" class="text-dark">Vintage Leather Tote</a>
+                  <a href="single-product.html" class="text-dark">Fourre-tout en cuir vintage</a>
                 </h5>
                 <a href="#" class="text-decoration-none text-dark" data-after="Add to cart"><span>$295.00</span></a>
               </div>
@@ -498,7 +644,7 @@
               </a>
               <div class="product-content">
                 <h5 class="text-uppercase fs-5 mt-3">
-                  <a href="single-product.html" class="text-dark">Executive Briefcase</a>
+                  <a href="single-product.html" class="text-dark">Mallette de direction</a>
                 </h5>
                 <a href="#" class="text-decoration-none text-dark" data-after="Add to cart"><span>$355.00</span></a>
               </div>
@@ -516,7 +662,7 @@
               </a>
               <div class="product-content">
                 <h5 class="text-uppercase fs-5 mt-3">
-                  <a href="single-product.html" class="text-dark">Minimalist Crossbody</a>
+                  <a href="single-product.html" class="text-dark">Bandoulière minimaliste</a>
                 </h5>
                 <a href="#" class="text-decoration-none text-dark" data-after="Add to cart"><span>$265.00</span></a>
               </div>
@@ -724,130 +870,24 @@
 
       </div>
     </div>
-  </section>
-
-  <section class="testimonials bg-primary text-white py-5">
-    <div class="section-header text-center">
-      <h3 class="section-title">Reviews</h3>
-    </div>
-    <div class="swiper testimonial-swiper overflow-hidden">
-      <div class="swiper-wrapper d-flex">
-        <div class="swiper-slide">
-          <div class="testimonial-item text-center">
-            <blockquote>
-              <p>"More than expected crazy soft, flexible and best fitted white simple denim shirt."</p>
-              <div class="review-title text-uppercase">casual way</div>
-            </blockquote>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="testimonial-item text-center">
-            <blockquote>
-              <p>"Best fitted white denim shirt more than expected crazy soft, flexible</p>
-              <div class="review-title text-uppercase">uptop</div>
-            </blockquote>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="testimonial-item text-center">
-            <blockquote>
-              <p>"Best fitted white denim shirt more white denim than expected flexible crazy soft."</p>
-              <div class="review-title text-uppercase">Denim craze</div>
-            </blockquote>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="testimonial-item text-center">
-            <blockquote>
-              <p>"Best fitted white denim shirt more than expected crazy soft, flexible</p>
-              <div class="review-title text-uppercase">uptop</div>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
+   </section>
   
-  <section class="blog bg-white text-dark py-5">
-    <div class="container">        
-      <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
-        <h4 class="text-uppercase text-dark">Read Blog Posts</h4>
-        <a href="blog-classic.html" class="btn-link text-dark">View All</a>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="single-post.html">
-                <img src="images/post-image1.jpg" alt="image" class="post-grid-image img-fluid">
-              </a>
-            </div>
-            <div class="post-content d-flex flex-wrap gap-2 my-3">
-              <div class="post-meta text-uppercase fs-6 text-muted">
-                <span class="post-category">Fashion /</span>
-                <span class="meta-day"> jul 11, 2022</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="single-post.html" class="text-dark">How to look outstanding in pastel</a>
-              </h5>
-              <p>Dignissim lacus,turpis ut suspendisse vel tellus.Turpis purus,gravida orci,fringilla...</p>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="single-post.html">
-                <img src="images/post-image2.jpg" alt="image" class="post-grid-image img-fluid">
-              </a>
-            </div>
-            <div class="post-content d-flex flex-wrap gap-2 my-3">
-              <div class="post-meta text-uppercase fs-6 text-muted">
-                <span class="post-category">Fashion /</span>
-                <span class="meta-day"> jul 11, 2022</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="single-post.html" class="text-dark">Top 10 fashion trend for summer</a>
-              </h5>
-              <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="single-post.html">
-                <img src="images/post-image3.jpg" alt="image" class="post-grid-image img-fluid">
-              </a>
-            </div>
-            <div class="post-content d-flex flex-wrap gap-2 my-3">
-              <div class="post-meta text-uppercase fs-6 text-muted">
-                <span class="post-category">Fashion /</span>
-                <span class="meta-day"> jul 11, 2022</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="single-post.html" class="text-dark">Crazy fashion with unique moment</a>
-              </h5>
-              <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
+      
+  
+ 
   
   <section class="newsletter jarallax">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8 py-5 my-5">
           <div class="subscribe-header text-center pb-3">
-            <h3 class="section-title text-uppercase text-white">Sign Up for Our Newsletter</h3>
+            <h3 class="section-title text-uppercase text-white">Inscrivez-vous à notre newsletter</h3>
           </div>
-          <form id="form" class="d-flex flex-wrap gap-2">
-            <input type="text" name="email" placeholder="Your Email Addresss" class="form-control form-control-lg bg-white rounded-0">
-            <button class="btn btn-primary btn-lg text-uppercase w-100">Sign Up</button>
+          <form id="newsletterForm" class="d-flex flex-wrap gap-2">
+            <input type="email" name="email" id="newsletterEmail" placeholder="Votre adresse e-mail" class="form-control form-control-lg bg-white rounded-0" required>
+            <button type="submit" class="btn btn-primary btn-lg text-uppercase w-100">S'inscrire</button>
           </form>
+          <div id="newsletterMessage" class="text-center mt-3 text-white"></div>
         </div>
       </div>
     </div>
@@ -857,24 +897,24 @@
   <section class="instagram bg-black py-5" data-bs-theme="dark">
     <div class="container-fluid">
       <div class="row g-3">
-        <h6 class="element-title text-center">Follow us on Instagram</h6>
+        <h6 class="element-title text-center">Suivez-nous sur Instagram</h6>
         <div class="col-4 col-sm-4 col-md-4">
           <div class="insta-item">
-            <a href="https://www.instagram.com/templatesjungle/" target="_blank">
+            <a href="https://www.instagram.com/rionaofficial/" target="_blank" rel="noopener">
               <img src="images/insta-item1.jpg" alt="instagram" class="insta-image img-fluid">
             </a>
           </div>
         </div>
         <div class="col-4 col-sm-4 col-md-4">
           <div class="insta-item">
-            <a href="https://www.instagram.com/templatesjungle/" target="_blank">
+            <a href="https://www.instagram.com/rionaofficial/" target="_blank" rel="noopener">
               <img src="images/insta-item2.jpg" alt="instagram" class="insta-image img-fluid">
             </a>
           </div>
         </div>
         <div class="col-4 col-sm-4 col-md-4">
           <div class="insta-item">
-            <a href="https://www.instagram.com/templatesjungle/" target="_blank">
+            <a href="https://www.instagram.com/rionaofficial/" target="_blank" rel="noopener">
               <img src="images/insta-item3.jpg" alt="instagram" class="insta-image img-fluid">
             </a>
           </div>
@@ -893,43 +933,22 @@
                 <img src="images/rio.png" alt="logo">
               </a>
             </div>
-            <p>Gravida massa volutpat aenean odio. Amet, turpis erat nullam fringilla elementum diam in. Nisi, purus
-              vitae, ultrices nunc. Sit ac sit suscipit hendrerit.</p>
+            <p>Bienvenue chez RIONA, votre boutique de mode. Contactez-nous pour toute question ou suggestion.</p>
             <div class="social-links">
               <ul class="list-unstyled d-flex flex-wrap gap-3">
                 <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#facebook"></use>
-                    </svg>
+                  <a href="https://wa.me/212600450046" class="text-secondary" target="_blank" rel="noopener">
+                    <img src="images/whatsapp.png" alt="WhatsApp" width="32" height="32" style="object-fit:contain;">
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#twitter"></use>
-                    </svg>
+                  <a href="https://www.instagram.com/rionaofficial/" class="text-secondary" target="_blank" rel="noopener">
+                    <img src="images/instagram.png" alt="Instagram" width="32" height="32" style="object-fit:contain;">
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#youtube"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#pinterest"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#instagram"></use>
-                    </svg>
+                  <a href="https://www.tiktok.com/search?q=%40rionaofficial01" class="text-secondary" target="_blank" rel="noopener">
+                    <img src="images/tiktok.png" alt="TikTok" width="32" height="32" style="object-fit:contain;">
                   </a>
                 </li>
               </ul>
@@ -938,19 +957,16 @@
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="footer-menu footer-menu-002">
-            <h5 class="widget-title text-uppercase mb-4">Quick Links</h5>
+            <h5 class="widget-title text-uppercase mb-4">Liens rapides</h5>
             <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
               <li class="menu-item">
-                <a href="index.html" class="item-anchor">Home</a>
+                <a href="index.html" class="item-anchor">Accueil</a>
               </li>
               <li class="menu-item">
-                <a href="shop-four-column-wide.html" class="item-anchor">About</a>
+                <a href="shop.html" class="item-anchor">Boutique</a>
               </li>
               <li class="menu-item">
-                <a href="blog.html" class="item-anchor">Services</a>
-              </li>
-              <li class="menu-item">
-                <a href="styles.html" class="item-anchor">Single item</a>
+                <a href="about.html" class="item-anchor">À propos</a>
               </li>
               <li class="menu-item">
                 <a href="contact.html" class="item-anchor">Contact</a>
@@ -958,39 +974,11 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="footer-menu footer-menu-003">
-            <h5 class="widget-title text-uppercase mb-4">Help & Info</h5>
-            <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Track Your Order</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Returns + Exchanges</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Shipping + Delivery</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Contact Us</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Find us easy</a>
-              </li>
-              <li class="menu-item">
-                <a href="faqs.html" class="item-anchor">Faqs</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6">
           <div class="footer-menu footer-menu-004 border-animation-left">
-            <h5 class="widget-title text-uppercase mb-4">Contact Us</h5>
-            <p>Do you have any questions or suggestions? <a href="mailto:contact@yourcompany.com"
-                class="item-anchor">contact@yourcompany.com</a></p>
-            <p>Do you need support? Give us a call. <a href="tel:+43 720 11 52 78" class="item-anchor">+43 720 11 52
-                78</a>
-            </p>
+            <h5 class="widget-title text-uppercase mb-4">Contact</h5>
+            <p>Des questions ou suggestions ? <a href="mailto:officialriona@gmail.com" class="item-anchor">officialriona@gmail.com</a></p>
+            <p>Besoin d'aide ? Écrivez-nous sur WhatsApp : <a href="https://wa.me/212600450046" class="item-anchor">+212 600 450 046</a></p>
           </div>
         </div>
       </div>
@@ -1000,15 +988,14 @@
         <div class="row">
           <div class="col-md-6 d-flex flex-wrap">
             <div class="payment-option">
-              <span>Payment Option:</span>
-              <img src="images/visa-card.png" alt="card">
-              <img src="images/paypal-card.png" alt="card">
-              <img src="images/master-card.png" alt="card">
+              <span>Moyens de paiement :</span>
+              <img src="images/visa-card.png" alt="carte visa">
+              <img src="images/paypal-card.png" alt="carte paypal">
+              <img src="images/master-card.png" alt="carte master">
             </div>
           </div>
           <div class="col-md-6 text-md-end">
-            <p>© Copyright 2025 Leo. All rights reserved. Design by <a href="https://templatesjungle.com"
-                target="_blank">TemplatesJungle</a></p>
+            <p>© Copyright 2025 RIONA. Tous droits réservés. réalisé par : <a href="https://wiyzdev.com/" target="_blank" rel="noopener">WiyzDev</a></p>    
           </div>
         </div>
       </div>
@@ -1021,5 +1008,50 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Newsletter form submission
+      $('#newsletterForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        const email = $('#newsletterEmail').val();
+        const messageDiv = $('#newsletterMessage');
+        
+        // Validate email
+        if (!email || !email.includes('@')) {
+          messageDiv.html('<p class="text-danger">Veuillez entrer une adresse email valide.</p>');
+          return;
+        }
+        
+        // Send to server
+        $.ajax({
+          url: 'http://localhost:3000/api/newsletter/subscribe',
+          method: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({ email: email }),
+          success: function(response) {
+            if (response.success) {
+              messageDiv.html('<p class="text-success">Merci pour votre inscription à la newsletter!</p>');
+              $('#newsletterEmail').val('');
+            } else {
+              messageDiv.html('<p class="text-danger">' + (response.error || 'Une erreur est survenue') + '</p>');
+            }
+          },
+          error: function(xhr) {
+            const response = xhr.responseJSON;
+            if (xhr.status === 400 && response.error === 'Email already subscribed') {
+              messageDiv.html('<p class="text-danger">Cette adresse email est déjà inscrite</p>');
+            } else {
+              messageDiv.html('<p class="text-danger">Une erreur est survenue. Veuillez réessayer.</p>');
+            }
+          }
+        });
+      });
+
+      // Initialize slider
+      initSlider();
+    });
+  </script>
+
 </body>
 </html>
