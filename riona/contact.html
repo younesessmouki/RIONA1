@@ -367,6 +367,9 @@
               <textarea name="message" id="message" class="form-control" placeholder="Votre message" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Envoyer le message</button>
+            <div id="successMessage" class="alert alert-success mt-3" style="display: none;">
+              Message envoyé avec succès!
+            </div>
           </form>
         </div>
       </div>
@@ -543,7 +546,7 @@
   <script>
     (function() {
       // Initialiser EmailJS avec votre User ID public
-      emailjs.init("YOUR_PUBLIC_KEY"); // Remplacez par votre clé publique EmailJS
+      emailjs.init("NKIflwBZeUarsLZtu"); // Votre clé publique EmailJS
     })();
 
     function sendEmail(e) {
@@ -565,10 +568,16 @@
       };
 
       // Envoyer l'email
-      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+      emailjs.send('service_249lsmn', 'template_ld4wf9a', templateParams)
         .then(function(response) {
-          alert('Votre message a été envoyé avec succès!');
+          // Show success message
+          document.getElementById('successMessage').style.display = 'block';
           document.getElementById('contact-form').reset();
+          
+          // Wait 2 seconds then redirect
+          setTimeout(function() {
+            window.location.href = 'index.html';
+          }, 2000);
         }, function(error) {
           alert('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.');
         });
