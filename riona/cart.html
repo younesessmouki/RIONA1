@@ -472,6 +472,7 @@
           <form id="form" class="d-flex flex-wrap gap-2">
             <input type="text" name="email" placeholder="Votre adresse e-mail" class="form-control form-control-lg bg-white rounded-0">
             <button class="btn btn-primary btn-lg text-uppercase w-100">S'inscrire</button>
+            <div id="newsletter-message" class="w-100 text-center mt-2" style="display: none;"></div>
           </form>
         </div>
       </div>
@@ -591,5 +592,84 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const newsletterForm = document.getElementById('form');
+      const emailInput = newsletterForm.querySelector('input[name="email"]');
+      const submitButton = newsletterForm.querySelector('button');
+      const messageContainer = document.getElementById('newsletter-message');
+      
+      function showMessage(message, isError = false) {
+        messageContainer.textContent = message;
+        messageContainer.style.display = 'block';
+        messageContainer.style.color = isError ? '#dc3545' : '#198754';
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          messageContainer.style.display = 'none';
+        }, 5000);
+      }
+      
+      // Add input validation
+      emailInput.addEventListener('input', function() {
+        const email = this.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!emailRegex.test(email)) {
+          this.setCustomValidity('Veuillez entrer une adresse email valide');
+        } else {
+          this.setCustomValidity('');
+        }
+      });
+
+      // Handle form submission
+      newsletterForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const email = emailInput.value.trim();
+        
+        if (!email) {
+          showMessage('Veuillez entrer votre adresse email', true);
+          return;
+        }
+
+        try {
+          // Disable button and show loading state
+          submitButton.disabled = true;
+          submitButton.innerHTML = 'Inscription en cours...';
+          messageContainer.style.display = 'none';
+
+          const response = await fetch('http://localhost:3000/api/newsletter/subscribe', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email })
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            showMessage('Merci de vous être inscrit à notre newsletter !');
+            emailInput.value = '';
+          } else {
+            if (data.error === 'Email already subscribed') {
+              showMessage('Cette adresse email est déjà inscrite à notre newsletter.', true);
+            } else {
+              showMessage('Une erreur est survenue. Veuillez réessayer plus tard.', true);
+            }
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          showMessage('Une erreur est survenue. Veuillez réessayer plus tard.', true);
+        } finally {
+          // Re-enable button and restore original text
+          submitButton.disabled = false;
+          submitButton.innerHTML = 'S\'inscrire';
+        }
+      });
+    });
+  </script>
 </body>
 </html>

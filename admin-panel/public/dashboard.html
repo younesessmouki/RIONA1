@@ -348,6 +348,11 @@
                     <i class="bi bi-people"></i> Customers
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#newsletter" data-bs-toggle="tab" data-title="Newsletter">
+                    <i class="bi bi-envelope"></i> Newsletter
+                </a>
+            </li>
             <li class="nav-item mt-auto">
                 <a class="nav-link" href="#" id="logoutBtn">
                     <i class="bi bi-box-arrow-right"></i> Logout
@@ -427,6 +432,28 @@
                         </div>
                         <div class="table-container">
                             <!-- Customers content will be added here -->
+                        </div>
+                    </div>
+                    <!-- Newsletter Tab -->
+                    <div class="tab-pane fade" id="newsletter">
+                        <div class="content-header">
+                            <h2>Newsletter Subscribers</h2>
+                        </div>
+                        <div class="table-container">
+                            <div class="table-responsive">
+                                <table class="table table-glass">
+                                    <thead>
+                                        <tr>
+                                            <th>Email</th>
+                                            <th>Date Subscribed</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="newsletterTableBody">
+                                        <!-- Newsletter subscribers will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -565,6 +592,116 @@
         // Load products when page loads
         loadProducts();
 
+        // Load newsletter subscribers
+        async function loadNewsletterSubscribers() {
+            try {
+                const response = await fetch('/api/newsletter/subscribers', {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                // Check if response is JSON
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    throw new Error('Server returned non-JSON response. Please check if the server is running.');
+                }
+
+                const subscribers = await response.json();
+                const tableBody = document.getElementById('newsletterTableBody');
+                tableBody.innerHTML = subscribers.map((subscriber, index) => `
+                    <tr class="fade-in" style="animation-delay: ${index * 0.1}s">
+                        <td>${subscriber.email}</td>
+                        <td>${new Date(subscriber.created_at).toLocaleString('fr-FR', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        })}</td>
+                        <td class="action-buttons">
+                            <button class="btn btn-sm btn-danger" onclick="deleteSubscriber('${subscriber.email}')">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading newsletter subscribers:', error);
+                const errorAlert = document.createElement('div');
+                errorAlert.className = 'alert alert-danger alert-dismissible fade show';
+                errorAlert.innerHTML = `
+                    <strong>Error!</strong> ${error.message || 'Failed to load subscribers. Please check if the server is running.'}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                `;
+                document.querySelector('#newsletter .content-header').appendChild(errorAlert);
+            }
+        }
+
+        // Delete newsletter subscriber
+        async function deleteSubscriber(email) {
+            if (confirm(`Are you sure you want to remove ${email} from the newsletter list?`)) {
+                try {
+                    // Properly encode the email for the URL
+                    const encodedEmail = encodeURIComponent(email);
+                    const response = await fetch(`/api/newsletter/subscribers/${encodedEmail}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    // Check if response is JSON
+                    const contentType = response.headers.get('content-type');
+                    if (!contentType || !contentType.includes('application/json')) {
+                        throw new Error('Server returned non-JSON response. Please check if the server is running.');
+                    }
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        // Show success message
+                        const successAlert = document.createElement('div');
+                        successAlert.className = 'alert alert-success alert-dismissible fade show';
+                        successAlert.innerHTML = `
+                            <strong>Success!</strong> Subscriber ${email} has been removed from the database.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        `;
+                        document.querySelector('#newsletter .content-header').appendChild(successAlert);
+
+                        // Remove alert after 3 seconds
+                        setTimeout(() => {
+                            successAlert.remove();
+                        }, 3000);
+
+                        // Reload the subscribers list
+                        await loadNewsletterSubscribers();
+                    } else {
+                        throw new Error(data.error || 'Failed to delete subscriber');
+                    }
+                } catch (error) {
+                    console.error('Error deleting subscriber:', error);
+                    // Show error message
+                    const errorAlert = document.createElement('div');
+                    errorAlert.className = 'alert alert-danger alert-dismissible fade show';
+                    errorAlert.innerHTML = `
+                        <strong>Error!</strong> ${error.message || 'Failed to remove subscriber. Please try again.'}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    `;
+                    document.querySelector('#newsletter .content-header').appendChild(errorAlert);
+
+                    // Remove alert after 3 seconds
+                    setTimeout(() => {
+                        errorAlert.remove();
+                    }, 3000);
+                }
+            }
+        }
+
+        // Load newsletter subscribers when page loads
+        loadNewsletterSubscribers();
+
         // Add smooth transitions between tabs
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
@@ -666,4 +803,4 @@
         });
     </script>
 </body>
-</html> </html> 
+</html> 

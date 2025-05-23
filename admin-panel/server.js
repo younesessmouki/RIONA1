@@ -82,6 +82,88 @@ app.get('/api/admin/logout', (req, res) => {
   res.json({ success: true });
 });
 
+// Newsletter subscription endpoint
+app.post('/api/newsletter/subscribe', async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ error: 'Email is required' });
+  }
+
+  try {
+    const result = await pool.query(
+      'INSERT INTO newsletter_clients (email) VALUES ($1) RETURNING *',
+      [email]
+    );
+    res.json({ success: true, data: result.rows[0] });
+  } catch (error) {
+    if (error.code === '23505') { // Unique violation error code
+      res.status(400).json({ error: 'Email already subscribed' });
+    } else {
+      console.error('Database error:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  }
+});
+
+// Get all newsletter subscribers (admin only)
+app.get('/api/newsletter/subscribers', async (req, res) => {
+  if (!req.session.admin) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  try {
+    const result = await pool.query('SELECT * FROM newsletter_clients ORDER BY created_at DESC');
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Database error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Delete newsletter subscriber (admin only)
+app.delete('/api/newsletter/subscribers/:email', async (req, res) => {
+  if (!req.session.admin) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  const { email } = req.params;
+  const decodedEmail = decodeURIComponent(email);
+
+  try {
+    // First check if the subscriber exists
+    const checkResult = await pool.query(
+      'SELECT * FROM newsletter_clients WHERE email = $1',
+      [decodedEmail]
+    );
+
+    if (checkResult.rows.length === 0) {
+      console.log(`Subscriber not found: ${decodedEmail}`);
+      return res.status(404).json({ error: 'Subscriber not found' });
+    }
+
+    // If exists, proceed with deletion
+    const result = await pool.query(
+      'DELETE FROM newsletter_clients WHERE email = $1 RETURNING *',
+      [decodedEmail]
+    );
+
+    console.log(`Successfully deleted subscriber: ${decodedEmail}`);
+    res.json({ 
+      success: true, 
+      message: 'Subscriber deleted successfully',
+      deletedSubscriber: result.rows[0]
+    });
+  } catch (error) {
+    console.error('Database error while deleting subscriber:', error);
+    console.error('Attempted to delete email:', decodedEmail);
+    res.status(500).json({ 
+      error: 'Internal server error',
+      details: error.message 
+    });
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
