@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients - RIONA Admin</title>
+    <link rel="icon" type="image/png" href="images/title2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .wrapper {
+            display: flex;
+            width: 100%;
+            align-items: stretch;
+        }
+        #sidebar {
+            min-width: 250px;
+            max-width: 250px;
+            background: #212529;
+            color: #fff;
+            transition: all 0.3s;
+            height: calc(100vh - 56px);
+            position: sticky;
+            top: 56px;
+            display: flex;
+            flex-direction: column;
+        }
+        #sidebar.active {
+            margin-left: -250px;
+        }
+        #sidebar .sidebar-header {
+            padding: 20px;
+            background: #1a1e21;
+        }
+        #sidebar ul.components {
+            padding: 20px 0;
+            flex-grow: 1;
+        }
+        #sidebar ul p {
+            color: #fff;
+            padding: 10px;
+        }
+        #sidebar ul li a {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            display: block;
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        #sidebar ul li a:hover,
+        #sidebar ul li a.active {
+            color: #fff;
+            background: #2c3237;
+        }
+        #sidebar ul li.active > a {
+            color: #fff;
+            background: #2c3237;
+        }
+        #sidebar .logout-section {
+            padding: 20px;
+            border-top: 1px solid #2c3237;
+            margin-top: auto;
+        }
+        #sidebar .logout-section a {
+            display: block;
+            padding: 10px 20px;
+            color: #dc3545;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-radius: 5px;
+        }
+        #sidebar .logout-section a:hover {
+            background: #dc3545;
+            color: #fff;
+        }
+        .main-content {
+            width: 100%;
+            padding: 2rem;
+            min-height: calc(100vh - 56px);
+        }
+        .card {
+            border-radius: 15px;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .customer-row {
+            transition: all 0.3s ease;
+        }
+        .customer-row:hover {
+            background-color: #f8f9fa;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            #sidebar {
+                margin-left: -250px;
+            }
+            #sidebar.active {
+                margin-left: 0;
+            }
+            #sidebarCollapse span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn btn-dark" aria-label="Toggle Sidebar">
+                <i class="bi bi-list"></i>
+            </button>
+            <a class="navbar-brand" href="dashboard.html">RIONA Admin</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <img src="images/rio.png" alt="RIONA Admin" style="width: 100%; max-width: 200px; height: auto;">
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="bi bi-speedometer2"></i> Tableau de Bord
+                    </a>
+                </li>
+                <li>
+                    <a href="products.html">
+                        <i class="bi bi-box"></i> Produits
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="customers.html">
+                        <i class="bi bi-people"></i> Clients
+                    </a>
+                </li>
+                <li>
+                    <a href="newsletter.html">
+                        <i class="bi bi-envelope"></i> Newsletter
+                    </a>
+                </li>
+            </ul>
+
+            <div class="logout-section">
+                <a href="#" id="logoutBtn">
+                    <i class="bi bi-box-arrow-right"></i> Déconnexion
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-header mb-4">
+                <h2>Gestion des Clients</h2>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="row mb-4">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <div class="card text-center p-3">
+                        <h5>Total des Clients</h5>
+                        <div class="display-6 fw-bold" id="totalCustomers">0</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <div class="card text-center p-3">
+                        <h5>Commandes Totales</h5>
+                        <div class="display-6 fw-bold">156</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card text-center p-3">
+                        <h5>Panier Moyen</h5>
+                        <div class="display-6 fw-bold">520 MAD</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customers List -->
+            <div class="card p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="mb-0">Liste des Clients</h5>
+                    <div class="d-flex gap-2">
+                        <input type="text" class="form-control" id="searchCustomer" placeholder="Rechercher un client...">
+                        <button class="btn btn-dark" id="exportBtn" title="Exporter la liste des clients">
+                            <i class="bi bi-download"></i> Exporter
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Téléphone</th>
+                                <th>Date d'inscription</th>
+                                <th>Commandes</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customersTableBody">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Details Modal -->
+    <div class="modal fade" id="customerDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Détails du Client</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="customer-info mb-4">
+                        <h6>Informations Personnelles</h6>
+                        <div id="customerInfo">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="customer-orders">
+                        <h6>Historique des Commandes</h6>
+                        <div id="customerOrders">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCustomers();
+            setupEventListeners();
+
+            // Sidebar toggle
+            document.getElementById('sidebarCollapse').addEventListener('click', () => {
+                document.getElementById('sidebar').classList.toggle('active');
+            });
+        });
+
+        function setupEventListeners() {
+            // Search functionality
+            document.getElementById('searchCustomer').addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const rows = document.querySelectorAll('#customersTableBody tr');
+                
+                rows.forEach(row => {
+                    const name = row.querySelector('td:first-child').textContent.toLowerCase();
+                    const email = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                    row.style.display = name.includes(searchTerm) || email.includes(searchTerm) ? '' : 'none';
+                });
+            });
+
+            // Export functionality
+            document.getElementById('exportBtn').addEventListener('click', exportCustomers);
+
+            // Logout handler
+            document.getElementById('logoutBtn').addEventListener('click', (e) => {
+                e.preventDefault();
+                if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+                    window.location.href = 'login.html';
+                }
+            });
+        }
+
+        async function loadCustomers() {
+            try {
+                const tableBody = document.getElementById('customersTableBody');
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="text-center py-4">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Chargement...</span>
+                            </div>
+                            <div class="mt-2">Chargement des clients...</div>
+                        </td>
+                    </tr>
+                `;
+
+                const response = await fetch('/api/customers');
+                const customers = await response.json();
+
+                // Update total count
+                document.getElementById('totalCustomers').textContent = customers.length;
+
+                // Render customers table
+                tableBody.innerHTML = customers.length ? customers.map((customer, index) => `
+                    <tr class="customer-row fade-in" style="animation-delay: ${index * 0.1}s">
+                        <td>${customer.name}</td>
+                        <td>${customer.email}</td>
+                        <td>${customer.phone || '-'}</td>
+                        <td>${new Date(customer.created_at).toLocaleDateString('fr-FR')}</td>
+                        <td>${customer.orders_count || 0}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" onclick="viewCustomerDetails(${customer.id})" title="Voir les détails du client">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteCustomer(${customer.id})" title="Supprimer le client">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('') : '<tr><td colspan="6" class="text-center py-4">Aucun client trouvé</td></tr>';
+            } catch (error) {
+                console.error('Error loading customers:', error);
+                showAlert('danger', 'Erreur lors du chargement des clients');
+            }
+        }
+
+        async function viewCustomerDetails(customerId) {
+            try {
+                // Show modal with loading state
+                document.getElementById('customerInfo').innerHTML = `
+                    <div class="text-center py-4">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Chargement...</span>
+                        </div>
+                        <div class="mt-2">Chargement des détails du client...</div>
+                    </div>
+                `;
+                document.getElementById('customerOrders').innerHTML = '';
+                const modal = new bootstrap.Modal(document.getElementById('customerDetailsModal'));
+                modal.show();
+
+                const response = await fetch(`/api/customers/${customerId}`);
+                const customer = await response.json();
+
+                // Populate customer info
+                document.getElementById('customerInfo').innerHTML = `
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Nom:</strong> ${customer.name}</p>
+                            <p><strong>Email:</strong> ${customer.email}</p>
+                            <p><strong>Téléphone:</strong> ${customer.phone || '-'}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Date d'inscription:</strong> ${new Date(customer.created_at).toLocaleDateString('fr-FR')}</p>
+                            <p><strong>Dernière commande:</strong> ${customer.last_order_date ? new Date(customer.last_order_date).toLocaleDateString('fr-FR') : '-'}</p>
+                            <p><strong>Total des commandes:</strong> ${customer.orders_count || 0}</p>
+                        </div>
+                    </div>
+                `;
+
+                // Populate orders history
+                document.getElementById('customerOrders').innerHTML = customer.orders.length ? customer.orders.map(order => `
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Commande #${order.id}</h6>
+                                    <small class="text-muted">${new Date(order.created_at).toLocaleDateString('fr-FR')}</small>
+                                </div>
+                                <div class="text-end">
+                                    <div class="fw-bold">${order.total} MAD</div>
+                                    <span class="badge bg-${order.status === 'completed' ? 'success' : 'warning'}">${order.status}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('') : '<p class="text-muted">Aucune commande</p>';
+            } catch (error) {
+                console.error('Error loading customer details:', error);
+                showAlert('danger', 'Erreur lors du chargement des détails du client');
+            }
+        }
+
+        async function deleteCustomer(customerId) {
+            if (!confirm('Êtes-vous sûr de vouloir supprimer ce client ?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/customers/${customerId}`, {
+                    method: 'DELETE'
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.message || 'Impossible de supprimer le client. Il pourrait avoir des commandes en cours.');
+                }
+
+                showAlert('success', 'Client supprimé avec succès');
+                loadCustomers();
+            } catch (error) {
+                console.error('Error deleting customer:', error);
+                showAlert('danger', error.message || 'Erreur lors de la suppression du client');
+            }
+        }
+
+        function exportCustomers() {
+            const rows = Array.from(document.querySelectorAll('#customersTableBody tr'))
+                .filter(row => row.style.display !== 'none')
+                .map(row => {
+                    const cells = row.querySelectorAll('td');
+                    return {
+                        name: cells[0].textContent,
+                        email: cells[1].textContent,
+                        phone: cells[2].textContent,
+                        date: cells[3].textContent,
+                        orders: cells[4].textContent
+                    };
+                });
+
+            const csv = [
+                ['Nom', 'Email', 'Téléphone', 'Date d\'inscription', 'Commandes'],
+                ...rows.map(row => [row.name, row.email, row.phone, row.date, row.orders])
+            ].map(row => row.join(',')).join('\n');
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', 'customers.csv');
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        function showAlert(type, message) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3`;
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            `;
+            document.body.appendChild(alertDiv);
+            setTimeout(() => alertDiv.remove(), 5000);
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Produit - RIONA Admin</title>
+    <link rel="icon" type="image/png" href="images/title2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .product-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .back-button {
+            text-decoration: none;
+            color: #212529;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+        .back-button:hover {
+            transform: translateX(-5px);
+        }
+        .product-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+        .product-info {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+        .product-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #212529;
+        }
+        .product-category {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+        .product-subcategory {
+            display: inline-block;
+            background: #212529;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #212529;
+            margin: 1rem 0;
+        }
+        .product-description {
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        .btn-edit, .btn-delete {
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn-edit {
+            background: #212529;
+            color: white;
+            border: none;
+        }
+        .btn-edit:hover {
+            background: #343a40;
+            transform: translateY(-2px);
+        }
+        .btn-delete {
+            background: #fff;
+            color: #dc3545;
+            border: 1px solid #dc3545;
+        }
+        .btn-delete:hover {
+            background: #dc3545;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        .metadata-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+        .metadata-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        .metadata-value {
+            font-weight: 500;
+            color: #212529;
+        }
+        @media (max-width: 768px) {
+            .product-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            .product-image {
+                height: 300px;
+            }
+            .product-title {
+                font-size: 1.5rem;
+            }
+            .action-buttons {
+                flex-direction: column;
+            }
+            .btn-edit, .btn-delete {
+                width: 100%;
+            }
+        }
+        .sizes-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+        }
+        .size-badge {
+            background: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 100px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .size-badge.available {
+            border: 2px solid #198754;
+        }
+        .size-badge.unavailable {
+            border: 2px solid #dc3545;
+            opacity: 0.7;
+        }
+        .size-label {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+        .quantity-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <div class="product-header">
+            <a href="products.html" class="back-button" id="backButton">
+                <i class="bi bi-arrow-left"></i>
+                Retour aux produits
+            </a>
+            <div class="action-buttons">
+                <button class="btn btn-edit" id="editButton">
+                    <i class="bi bi-pencil"></i>
+                    Modifier
+                </button>
+                <button class="btn btn-delete" id="deleteButton">
+                    <i class="bi bi-trash"></i>
+                    Supprimer
+                </button>
+            </div>
+        </div>
+
+        <div id="productContent">
+            <!-- Content will be loaded dynamically -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Get the product ID from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+
+            if (!productId) {
+                window.location.href = 'dashboard.html';
+                return;
+            }
+
+            try {
+                // Fetch product details
+                const response = await fetch(`/api/products/${productId}`);
+                if (!response.ok) {
+                    throw new Error('Product not found');
+                }
+                const product = await response.json();
+
+                // Update page content
+                document.getElementById('productContent').innerHTML = `
+                    <img src="${product.image_url || 'placeholder.jpg'}" alt="${product.name}" class="product-image">
+                    
+                    <div class="product-info">
+                        <h1 class="product-title">${product.name}</h1>
+                        <div>
+                            <span class="product-category">${product.category}</span>
+                            ${product.subcategory ? `<span class="product-subcategory">${product.subcategory}</span>` : ''}
+                        </div>
+                        <div class="product-price">${product.price} MAD</div>
+                        <p class="product-description">${product.description}</p>
+                        
+                        <div class="sizes-section mb-4">
+                            <h6 class="mb-3">Tailles et Stock Disponible</h6>
+                            <div class="d-flex flex-wrap gap-3">
+                                ${Object.entries(product.sizes || {}).map(([size, quantity]) => `
+                                    <div class="size-badge ${quantity > 0 ? 'available' : 'unavailable'}">
+                                        <div class="size-label">${size}</div>
+                                        <div class="quantity-label">${quantity} en stock</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="metadata">
+                            <div class="metadata-item">
+                                <div class="metadata-label">ID Produit</div>
+                                <div class="metadata-value">${product.id}</div>
+                            </div>
+                            <div class="metadata-item">
+                                <div class="metadata-label">Date de création</div>
+                                <div class="metadata-value">${new Date(product.created_at).toLocaleDateString('fr-FR')}</div>
+                            </div>
+                            <div class="metadata-item">
+                                <div class="metadata-label">Dernière modification</div>
+                                <div class="metadata-value">${product.updated_at ? new Date(product.updated_at).toLocaleDateString('fr-FR') : 'Jamais'}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Handle back button click
+                document.getElementById('backButton').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'products.html';
+                });
+
+                // Add event listeners for buttons
+                document.getElementById('editButton').addEventListener('click', () => {
+                    // Return to products page and trigger edit modal
+                    window.location.href = 'products.html';
+                    // Store the product ID to edit in localStorage
+                    localStorage.setItem('editProductId', product.id);
+                });
+
+                document.getElementById('deleteButton').addEventListener('click', async () => {
+                    if (confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')) {
+                        try {
+                            const deleteResponse = await fetch(`/api/products/${productId}`, {
+                                method: 'DELETE'
+                            });
+                            
+                            if (!deleteResponse.ok) {
+                                throw new Error('Failed to delete product');
+                            }
+
+                            // Redirect to products page after successful deletion
+                            window.location.href = 'dashboard.html#products';
+                        } catch (error) {
+                            console.error('Error deleting product:', error);
+                            alert('Erreur lors de la suppression du produit');
+                        }
+                    }
+                });
+
+            } catch (error) {
+                console.error('Error loading product:', error);
+                document.getElementById('productContent').innerHTML = `
+                    <div class="alert alert-danger">
+                        Erreur lors du chargement du produit. Le produit n'existe peut-être plus.
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits - RIONA Admin</title>
+    <link rel="icon" type="image/png" href="images/title2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .wrapper {
+            display: flex;
+            width: 100%;
+            align-items: stretch;
+        }
+        #sidebar {
+            min-width: 250px;
+            max-width: 250px;
+            background: #212529;
+            color: #fff;
+            transition: all 0.3s;
+            height: calc(100vh - 56px);
+            position: sticky;
+            top: 56px;
+            display: flex;
+            flex-direction: column;
+        }
+        #sidebar.active {
+            margin-left: -250px;
+        }
+        #sidebar .sidebar-header {
+            padding: 20px;
+            background: #1a1e21;
+        }
+        #sidebar ul.components {
+            padding: 20px 0;
+            flex-grow: 1;
+        }
+        #sidebar ul p {
+            color: #fff;
+            padding: 10px;
+        }
+        #sidebar ul li a {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            display: block;
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        #sidebar ul li a:hover,
+        #sidebar ul li a.active {
+            color: #fff;
+            background: #2c3237;
+        }
+        #sidebar ul li.active > a {
+            color: #fff;
+            background: #2c3237;
+        }
+        #sidebar .logout-section {
+            padding: 20px;
+            border-top: 1px solid #2c3237;
+            margin-top: auto;
+        }
+        #sidebar .logout-section a {
+            display: block;
+            padding: 10px 20px;
+            color: #dc3545;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-radius: 5px;
+        }
+        #sidebar .logout-section a:hover {
+            background: #dc3545;
+            color: #fff;
+        }
+        .main-content {
+            width: 100%;
+            padding: 2rem;
+            min-height: calc(100vh - 56px);
+        }
+        .btn-add {
+            background: #212529;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-add:hover {
+            background: #343a40;
+            transform: translateY(-2px);
+        }
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .product-image-container {
+            height: 200px;
+            overflow: hidden;
+        }
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-details {
+            padding: 1rem;
+        }
+        .product-title {
+            margin: 0;
+            font-weight: 600;
+            color: #212529;
+        }
+        .product-category {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+        .product-price {
+            font-weight: 600;
+            color: #212529;
+            margin: 0.5rem 0;
+        }
+        .product-actions {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            #sidebar {
+                margin-left: -250px;
+            }
+            #sidebar.active {
+                margin-left: 0;
+            }
+            #sidebarCollapse span {
+                display: none;
+            }
+        }
+        .size-group {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            min-width: 80px;
+        }
+        .size-group .form-control-sm {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn btn-dark" aria-label="Toggle Sidebar">
+                <i class="bi bi-list"></i>
+            </button>
+            <a class="navbar-brand" href="dashboard.html">RIONA Admin</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <img src="images/rio.png" alt="RIONA Admin" style="width: 100%; max-width: 200px; height: auto;">
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="bi bi-speedometer2"></i> Tableau de Bord
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="products.html">
+                        <i class="bi bi-box"></i> Produits
+                    </a>
+                </li>
+                <li>
+                    <a href="customers.html">
+                        <i class="bi bi-people"></i> Clients
+                    </a>
+                </li>
+                <li>
+                    <a href="newsletter.html">
+                        <i class="bi bi-envelope"></i> Newsletter
+                    </a>
+                </li>
+            </ul>
+
+            <div class="logout-section">
+                <a href="#" id="logoutBtn">
+                    <i class="bi bi-box-arrow-right"></i> Déconnexion
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-header d-flex justify-content-between align-items-center mb-4">
+                <h2>Produits</h2>
+                <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                    <i class="bi bi-plus-lg"></i> Ajouter un Produit
+                </button>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls card p-3 mb-4">
+                <div class="row g-3">
+                    <div class="col-12 col-md-3">
+                        <label for="filterCategory" class="form-label">Filtrer par Catégorie</label>
+                        <select class="form-select" id="filterCategory">
+                            <option value="">Toutes les catégories</option>
+                            <option value="hauts">HAUTS</option>
+                            <option value="bottom">BOTTOM</option>
+                            <option value="chaussures">CHAUSSURES</option>
+                            <option value="outfits">OUTFITS</option>
+                            <option value="accessoires">ACCESSOIRES</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label for="filterSubcategory" class="form-label">Filtrer par Sous-catégorie</label>
+                        <select class="form-select" id="filterSubcategory" disabled>
+                            <option value="">Toutes les sous-catégories</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label for="searchProduct" class="form-label">Rechercher</label>
+                        <input type="text" class="form-control" id="searchProduct" placeholder="Nom du produit...">
+                    </div>
+                    <div class="col-12 col-md-2 d-flex align-items-end">
+                        <button class="btn btn-dark w-100" id="applyFilters">
+                            <i class="bi bi-funnel"></i> Filtrer
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid View -->
+            <div class="products-grid mb-4">
+                <div class="row g-4" id="productsGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Products Table View -->
+            <div class="table-container" style="display: none;">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Nom</th>
+                                <th>Catégorie</th>
+                                <th>Sous-catégorie</th>
+                                <th>Prix</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <!-- Products will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- View Toggle Button -->
+            <div class="view-toggle position-fixed bottom-0 end-0 m-4">
+                <button class="btn btn-dark rounded-circle p-3" id="toggleViewBtn" title="Voir en liste">
+                    <i class="bi bi-grid"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ajouter un Nouveau Produit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addProductForm">
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Nom du Produit</label>
+                            <input type="text" class="form-control" id="productName" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="productDescription" name="description" rows="3" required></textarea>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="productCategory" class="form-label">Catégorie</label>
+                                <select class="form-select" id="productCategory" name="category" required>
+                                    <option value="">Sélectionner une catégorie</option>
+                                    <option value="hauts">HAUTS</option>
+                                    <option value="bottom">BOTTOM</option>
+                                    <option value="chaussures">CHAUSSURES</option>
+                                    <option value="outfits">OUTFITS</option>
+                                    <option value="accessoires">ACCESSOIRES</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="productSubcategory" class="form-label">Sous-catégorie</label>
+                                <select class="form-select" id="productSubcategory" name="subcategory" disabled>
+                                    <option value="">Sélectionner une sous-catégorie</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productPrice" class="form-label">Prix (MAD)</label>
+                            <input type="number" class="form-control" id="productPrice" name="price" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tailles Disponibles</label>
+                            <div class="d-flex flex-wrap gap-2">
+                                <div class="size-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeXS" name="sizes" value="XS">
+                                        <label class="form-check-label" for="sizeXS">XS</label>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm mt-1" id="quantityXS" name="quantity_XS" placeholder="Qté" min="0" disabled>
+                                </div>
+                                <div class="size-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeS" name="sizes" value="S">
+                                        <label class="form-check-label" for="sizeS">S</label>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm mt-1" id="quantityS" name="quantity_S" placeholder="Qté" min="0" disabled>
+                                </div>
+                                <div class="size-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeM" name="sizes" value="M">
+                                        <label class="form-check-label" for="sizeM">M</label>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm mt-1" id="quantityM" name="quantity_M" placeholder="Qté" min="0" disabled>
+                                </div>
+                                <div class="size-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeL" name="sizes" value="L">
+                                        <label class="form-check-label" for="sizeL">L</label>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm mt-1" id="quantityL" name="quantity_L" placeholder="Qté" min="0" disabled>
+                                </div>
+                                <div class="size-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeXL" name="sizes" value="XL">
+                                        <label class="form-check-label" for="sizeXL">XL</label>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm mt-1" id="quantityXL" name="quantity_XL" placeholder="Qté" min="0" disabled>
+                                </div>
+                                <div class="size-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeXXL" name="sizes" value="XXL">
+                                        <label class="form-check-label" for="sizeXXL">XXL</label>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm mt-1" id="quantityXXL" name="quantity_XXL" placeholder="Qté" min="0" disabled>
+                                </div>
+                                <div class="size-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeXXXL" name="sizes" value="XXXL">
+                                        <label class="form-check-label" for="sizeXXXL">XXXL</label>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm mt-1" id="quantityXXXL" name="quantity_XXXL" placeholder="Qté" min="0" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productImage" class="form-label">Image</label>
+                            <input type="file" class="form-control" id="productImage" name="image" accept="image/*">
+                            <div id="imagePreviewContainer" class="mt-2" style="display: none;">
+                                <img id="imagePreview" class="img-fluid" style="max-height: 200px;">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary" id="saveProductBtn">Enregistrer le Produit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Category-Subcategory mapping
+        const categorySubcategories = {
+            'hauts': ['t-shirts', 'chemises', 'pulls', 'vestes'],
+            'bottom': ['pantalons', 'jeans', 'shorts', 'jupes'],
+            'chaussures': ['baskets', 'bottes', 'sandales', 'talons'],
+            'outfits': ['robes', 'ensembles', 'combinaisons'],
+            'accessoires': ['sacs', 'bijoux', 'ceintures', 'chapeaux']
+        };
+
+        let isGridView = true;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize
+            loadProducts();
+            setupEventListeners();
+
+            // Sidebar toggle
+            document.getElementById('sidebarCollapse').addEventListener('click', () => {
+                document.getElementById('sidebar').classList.toggle('active');
+            });
+        });
+
+        function setupEventListeners() {
+            // Category change handlers
+            document.getElementById('filterCategory').addEventListener('change', function() {
+                updateSubcategoryOptions(this.value, 'filterSubcategory');
+            });
+
+            document.getElementById('productCategory').addEventListener('change', function() {
+                updateSubcategoryOptions(this.value, 'productSubcategory');
+            });
+
+            // Search and filter handlers
+            document.getElementById('searchProduct').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('applyFilters').click();
+                }
+            });
+
+            document.getElementById('applyFilters').addEventListener('click', loadProducts);
+
+            // View toggle handler
+            document.getElementById('toggleViewBtn').addEventListener('click', function() {
+                isGridView = !isGridView;
+                this.innerHTML = `<i class="bi bi-${isGridView ? 'list' : 'grid'}"></i>`;
+                this.setAttribute('title', isGridView ? 'Voir en liste' : 'Voir en grille');
+                document.querySelector('.products-grid').style.display = isGridView ? 'block' : 'none';
+                document.querySelector('.table-container').style.display = isGridView ? 'none' : 'block';
+                loadProducts();
+            });
+
+            // Image preview handler
+            document.getElementById('productImage').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('imagePreview').src = e.target.result;
+                        document.getElementById('imagePreviewContainer').style.display = 'block';
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Save product handler
+            document.getElementById('saveProductBtn').addEventListener('click', async () => {
+                const form = document.getElementById('addProductForm');
+                const formData = new FormData(form);
+                const button = document.getElementById('saveProductBtn');
+                const isEdit = form.dataset.editId;
+
+                try {
+                    button.disabled = true;
+                    button.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Enregistrement...';
+
+                    const url = isEdit ? `/api/products/${form.dataset.editId}` : '/api/products';
+                    const method = isEdit ? 'PUT' : 'POST';
+
+                    const response = await fetch(url, {
+                        method: method,
+                        body: formData
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Error ${isEdit ? 'updating' : 'adding'} product`);
+                    }
+
+                    // Close modal and reset form
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('addProductModal'));
+                    modal.hide();
+                    form.reset();
+                    form.dataset.editId = '';
+                    document.getElementById('imagePreviewContainer').style.display = 'none';
+                    document.querySelector('#addProductModal .modal-title').textContent = 'Ajouter un Nouveau Produit';
+                    document.querySelector('#saveProductBtn').textContent = 'Enregistrer le Produit';
+
+                    // Reload products
+                    loadProducts();
+                    showAlert('success', `Le produit a été ${isEdit ? 'modifié' : 'ajouté'} avec succès`);
+                } catch (error) {
+                    console.error('Error:', error);
+                    showAlert('danger', error.message);
+                } finally {
+                    button.disabled = false;
+                    button.textContent = 'Enregistrer le Produit';
+                }
+            });
+
+            // Add event listeners for size checkboxes
+            document.querySelectorAll('input[name="sizes"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const sizeCode = this.value;
+                    const quantityInput = document.getElementById(`quantity${sizeCode}`);
+                    quantityInput.disabled = !this.checked;
+                    if (!this.checked) {
+                        quantityInput.value = '';
+                    }
+                });
+            });
+        }
+
+        async function loadProducts() {
+            try {
+                const category = document.getElementById('filterCategory').value;
+                const subcategory = document.getElementById('filterSubcategory').value;
+                const search = document.getElementById('searchProduct').value;
+
+                let url = '/api/products';
+                const params = new URLSearchParams();
+                if (category) params.append('category', category);
+                if (subcategory) params.append('subcategory', subcategory);
+                if (search) params.append('search', search);
+                if (params.toString()) url += '?' + params.toString();
+
+                const response = await fetch(url);
+                const products = await response.json();
+
+                if (isGridView) {
+                    renderProductsGrid(products);
+                } else {
+                    renderProductsTable(products);
+                }
+            } catch (error) {
+                console.error('Error loading products:', error);
+                showAlert('danger', 'Erreur lors du chargement des produits');
+            }
+        }
+
+        function renderProductsGrid(products) {
+            const gridContainer = document.getElementById('productsGrid');
+            if (products.length === 0) {
+                gridContainer.innerHTML = `
+                    <div class="col-12">
+                        <div class="alert alert-info">Aucun produit trouvé</div>
+                    </div>`;
+                return;
+            }
+
+            gridContainer.innerHTML = products.map((product, index) => `
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="product-card fade-in" style="animation-delay: ${index * 0.1}s" onclick="window.location.href='product-details.html?id=${product.id}'">
+                        <div class="product-image-container">
+                            <img src="${product.image_url}" class="product-image" alt="${product.name}">
+                        </div>
+                        <div class="product-details">
+                            <h5 class="product-title">${product.name}</h5>
+                            <div class="product-category">
+                                ${product.category}${product.subcategory ? ` - ${product.subcategory}` : ''}
+                            </div>
+                            <div class="product-price">${product.price} MAD</div>
+                            <div class="product-actions" onclick="event.stopPropagation()">
+                                <button class="btn btn-sm btn-primary" onclick="editProduct(${product.id})">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteProduct(${product.id})">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderProductsTable(products) {
+            const tableBody = document.getElementById('productsTableBody');
+            if (products.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="text-center">Aucun produit trouvé</td>
+                    </tr>`;
+                return;
+            }
+
+            tableBody.innerHTML = products.map((product, index) => `
+                <tr class="fade-in" style="animation-delay: ${index * 0.1}s" onclick="window.location.href='product-details.html?id=${product.id}'" style="cursor: pointer;">
+                    <td><img src="${product.image_url}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover;"></td>
+                    <td>${product.name}</td>
+                    <td>${product.category}</td>
+                    <td>${product.subcategory || '-'}</td>
+                    <td>${product.price} MAD</td>
+                    <td class="action-buttons" onclick="event.stopPropagation()">
+                        <button class="btn btn-sm btn-primary" onclick="editProduct(${product.id})">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteProduct(${product.id})">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function editProduct(id) {
+            try {
+                const response = await fetch(`/api/products/${id}`);
+                const product = await response.json();
+
+                const form = document.getElementById('addProductForm');
+                form.dataset.editId = id;
+                form.elements.name.value = product.name;
+                form.elements.description.value = product.description;
+                form.elements.category.value = product.category;
+                updateSubcategoryOptions(product.category, 'productSubcategory');
+                form.elements.subcategory.value = product.subcategory || '';
+                form.elements.price.value = product.price;
+
+                if (product.image_url) {
+                    document.getElementById('imagePreview').src = product.image_url;
+                    document.getElementById('imagePreviewContainer').style.display = 'block';
+                }
+
+                document.querySelector('#addProductModal .modal-title').textContent = 'Modifier le Produit';
+                document.querySelector('#saveProductBtn').textContent = 'Enregistrer les Modifications';
+
+                const modal = new bootstrap.Modal(document.getElementById('addProductModal'));
+                modal.show();
+            } catch (error) {
+                console.error('Error loading product for edit:', error);
+                showAlert('danger', 'Erreur lors du chargement du produit');
+            }
+        }
+
+        async function deleteProduct(id) {
+            if (!confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/products/${id}`, {
+                    method: 'DELETE'
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to delete product');
+                }
+
+                showAlert('success', 'Produit supprimé avec succès');
+                loadProducts();
+            } catch (error) {
+                console.error('Error deleting product:', error);
+                showAlert('danger', 'Erreur lors de la suppression du produit');
+            }
+        }
+
+        function updateSubcategoryOptions(category, selectId) {
+            const subcategorySelect = document.getElementById(selectId);
+            subcategorySelect.innerHTML = '<option value="">Toutes les sous-catégories</option>';
+            
+            if (category && categorySubcategories[category]) {
+                const subcategories = categorySubcategories[category];
+                subcategories.forEach(subcategory => {
+                    const option = document.createElement('option');
+                    option.value = subcategory;
+                    option.textContent = subcategory.toUpperCase();
+                    subcategorySelect.appendChild(option);
+                });
+                subcategorySelect.disabled = false;
+            } else {
+                subcategorySelect.disabled = true;
+            }
+        }
+
+        function showAlert(type, message) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3`;
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.body.appendChild(alertDiv);
+            setTimeout(() => alertDiv.remove(), 5000);
+        }
+    </script>
+</body>
+</html> 
